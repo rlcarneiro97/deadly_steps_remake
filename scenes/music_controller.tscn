@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://cr4d05dbw4djl"]
+
+[ext_resource type="Script" path="res://scripts/music_controller.gd" id="1_xumwx"]
+[ext_resource type="AudioStream" uid="uid://dgdsw3gmumis0" path="res://sounds/bg/12. Pompeii.mp3" id="2_yhbnu"]
+[ext_resource type="AudioStream" uid="uid://boysak6fpnbak" path="res://sounds/bg/Ratchet & Clank - Rilgar - Blackwater City (192 kbps).mp3" id="3_dlgtg"]
+
+[node name="MusicController" type="Node2D"]
+script = ExtResource("1_xumwx")
+
+[node name="BgMusicMenu" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_yhbnu")
+
+[node name="BgMusicMission" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_dlgtg")
+
+[connection signal="finished" from="BgMusicMenu" to="." method="_on_bg_music_menu_finished"]
+[connection signal="finished" from="BgMusicMission" to="." method="_on_bg_music_mission_finished"]

@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://d1bx3f0oguxhu"]
+
+[ext_resource type="Script" path="res://scripts/weapon.gd" id="1_wnpr5"]
+[ext_resource type="Texture2D" uid="uid://bm2p04drrnm38" path="res://assets/armas/M4A1.png" id="2_mjygc"]
+
+[node name="Weapon" type="Node2D"]
+scale = Vector2(1.5, 1)
+script = ExtResource("1_wnpr5")
+
+[node name="WeaponSprite" type="Sprite2D" parent="."]
+z_index = 1
+position = Vector2(12, 1.35783)
+texture = ExtResource("2_mjygc")
+
+[node name="Marker1" type="Marker2D" parent="."]
+position = Vector2(50, -7)
+
+[node name="Marker2" type="Marker2D" parent="."]
+position = Vector2(51, 11.358)
