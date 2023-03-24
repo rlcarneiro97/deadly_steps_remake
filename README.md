@@ -1,2 +1,2 @@
 # deadly_steps_remake
-Uma fanart remake de um mini game antigo
+Uma fanart remake baseada em um mini game antigo
