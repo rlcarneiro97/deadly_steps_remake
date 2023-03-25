@@ -54,7 +54,7 @@ func _check_idle_state() -> int:
 		new_state = RUN
 	elif Input.is_action_pressed("shoot"):
 		new_state = SHOOT
-	elif Input.is_action_pressed("jump"):
+	elif Input.is_action_pressed("jump")  and is_on_floor():
 		new_state = JUMP
 		
 	return new_state
@@ -66,7 +66,7 @@ func _check_run_state() -> int:
 		new_state = IDLE
 	elif Input.is_action_pressed("shoot"):
 		new_state = RUN_SHOOT
-	elif Input.is_action_pressed("jump"):
+	elif Input.is_action_pressed("jump") and is_on_floor():
 		new_state = JUMP
 		
 	return new_state
