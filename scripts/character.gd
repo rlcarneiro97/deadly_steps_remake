@@ -20,28 +20,28 @@ func _physics_process(delta):
 	match current_state:
 		IDLE:
 			_idle_state(delta)
-			print("IDLE")
+#			print("IDLE")
 		RUN:
 			_run_state(delta)
-			print("RUN")
+#			print("RUN")
 		JUMP:
 			_jump_state(delta)
-			print("JUMP")
+#			print("JUMP")
 		FALL:
 			_fall_state(delta)
-			print("FALL")
+#			print("FALL")
 		SHOOT:
 			_shoot_state(delta)
-			print("SHOOT")
+#			print("SHOOT")
 		RUN_SHOOT:
 			_run_shoot_state(delta)
-			print("RUN_SHOOT")
+#			print("RUN_SHOOT")
 		JUMP_SHOOT:
 			_jump_shoot_state(delta)
-			print("JUMP_SHOOT")
+#			print("JUMP_SHOOT")
 		FALL_SHOOT:
 			_fall_shoot_state(delta)
-			print("FALL_SHOOT")
+#			print("FALL_SHOOT")
 
 #-------------------------------------------------------------------------------
 
