@@ -1,6 +1,6 @@
 extends Node2D
 
-@export var mission_1_scene = load("res://scenes/mission_1.tscn")
+@export var mission_scene = load("res://scenes/parte_1.tscn")
 
 func _process(_delta):
 	skip()
@@ -11,4 +11,4 @@ func skip() -> void:
 		
 		MusicController.stopBgMusicMenu()
 		MusicController.playBgMusicMission()
-		get_tree().change_scene_to_packed(mission_1_scene)
+		get_tree().change_scene_to_packed(mission_scene)
