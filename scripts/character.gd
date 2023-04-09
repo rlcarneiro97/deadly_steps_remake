@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-#variaveis da maquina de estados
+# variaveis da maquina de estados
 enum {IDLE, RUN, JUMP, FALL, SHOOT, RUN_SHOOT, JUMP_SHOOT, FALL_SHOOT}
 var enter_state = true
 var current_state = IDLE

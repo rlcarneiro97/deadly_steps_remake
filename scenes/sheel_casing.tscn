@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://b016ox456pi8x"]
+
+[ext_resource type="Script" path="res://scripts/sheel_casing.gd" id="1_c8md8"]
+[ext_resource type="Texture2D" uid="uid://wjseokh11w6t" path="res://assets/teste/cubo.png" id="1_h4yld"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_av7es"]
+size = Vector2(6, 2)
+
+[node name="Sheel_Casing" type="RigidBody2D"]
+collision_layer = 2048
+collision_mask = 0
+can_sleep = false
+script = ExtResource("1_c8md8")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+self_modulate = Color(1, 0.843137, 0.219608, 1)
+scale = Vector2(0.0800006, 0.04)
+texture = ExtResource("1_h4yld")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_av7es")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
