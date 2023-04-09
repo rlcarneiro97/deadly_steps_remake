@@ -1,0 +1,79 @@
+[gd_scene load_steps=7 format=3 uid="uid://oknyiuimldq7"]
+
+[ext_resource type="Script" path="res://scripts/clone_machine.gd" id="1_bve03"]
+[ext_resource type="Texture2D" uid="uid://dil48uc0hg7xf" path="res://assets/assets provisorios/Clone Machine.png" id="1_vip6v"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_73lwc"]
+size = Vector2(144, 128)
+
+[sub_resource type="Animation" id="Animation_ofgtk"]
+length = 0.01
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_rolhp"]
+resource_name = "Destroy"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:collision_layer")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_3d2mq"]
+_data = {
+"Destroy": SubResource("Animation_rolhp"),
+"RESET": SubResource("Animation_ofgtk")
+}
+
+[node name="CloneMachine" type="StaticBody2D"]
+position = Vector2(0, 7.62939e-06)
+scale = Vector2(0.7, 0.7)
+collision_layer = 64
+collision_mask = 0
+script = ExtResource("1_bve03")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_vip6v")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_73lwc")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_73lwc")
+
+[node name="DestroyAnim" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_3d2mq")
+}

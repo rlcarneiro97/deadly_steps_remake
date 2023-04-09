@@ -1,19 +1,23 @@
 extends Area2D
 
-var vel = 1000
-var dir = Vector2()
+var vel = 800
+var direction = Vector2()
+
+var BULLET_DAMAGE := 1
 
 func _physics_process(delta):
-	translate(dir * vel * delta)
+	translate(direction * vel * delta)
 
-func setDir(direcao) -> void:
-	dir = direcao
+func setDirection(dir) -> void:
+	self.direction = dir
 
 func setVel(bulletSpeed) -> void:
 	vel = bulletSpeed
 
 func _on_visible_on_screen_notifier_2d_screen_exited():
-	queue_free()
+	self.queue_free()
 
-func _on_body_entered(_body):
+func _on_body_entered(body):
+	if body.name == "CloneMachine":
+		body.applyDamage(BULLET_DAMAGE)
 	queue_free()

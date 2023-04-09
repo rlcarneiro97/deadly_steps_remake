@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://iieg5pjis18e"]
+[gd_scene load_steps=9 format=3 uid="uid://cp65phyvg000v"]
 
 [ext_resource type="Texture2D" uid="uid://dia41kri5i4p4" path="res://assets/tilemap/Tilemap.png" id="1_u5vui"]
 [ext_resource type="PackedScene" uid="uid://dbigh2spk2ws7" path="res://scenes/character.tscn" id="2_t5oyg"]
 [ext_resource type="PackedScene" uid="uid://bmm03dfb44cn5" path="res://scenes/next_area.tscn" id="3_k730t"]
+[ext_resource type="PackedScene" uid="uid://d14hfy4j72wds" path="res://scenes/limit_area.tscn" id="4_mg7bf"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_nrrg4"]
 polygon = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
@@ -246,3 +247,7 @@ position = Vector2(72, 160)
 
 [node name="Parte_1" parent="." instance=ExtResource("3_k730t")]
 position = Vector2(1576, 480)
+
+[node name="LimitArea" parent="." instance=ExtResource("4_mg7bf")]
+position = Vector2(-19, 120)
+scale = Vector2(1, 1.2)
