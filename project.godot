@@ -23,8 +23,8 @@ OptionsController="*res://scripts/options_controller.gd"
 
 [display]
 
-window/handheld/orientation=6
 window/stretch/mode="viewport"
+window/handheld/orientation=6
 
 [editor]
 

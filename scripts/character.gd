@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-#variaveis da maquina de estados
+# variaveis da maquina de estados
 enum {IDLE, RUN, JUMP, FALL, SHOOT, RUN_SHOOT, JUMP_SHOOT, FALL_SHOOT}
 var enter_state = true
 var current_state = IDLE
@@ -20,28 +20,28 @@ func _physics_process(delta):
 	match current_state:
 		IDLE:
 			_idle_state(delta)
-			print("IDLE")
+#			print("IDLE")
 		RUN:
 			_run_state(delta)
-			print("RUN")
+#			print("RUN")
 		JUMP:
 			_jump_state(delta)
-			print("JUMP")
+#			print("JUMP")
 		FALL:
 			_fall_state(delta)
-			print("FALL")
+#			print("FALL")
 		SHOOT:
 			_shoot_state(delta)
-			print("SHOOT")
+#			print("SHOOT")
 		RUN_SHOOT:
 			_run_shoot_state(delta)
-			print("RUN_SHOOT")
+#			print("RUN_SHOOT")
 		JUMP_SHOOT:
 			_jump_shoot_state(delta)
-			print("JUMP_SHOOT")
+#			print("JUMP_SHOOT")
 		FALL_SHOOT:
 			_fall_shoot_state(delta)
-			print("FALL_SHOOT")
+#			print("FALL_SHOOT")
 
 #-------------------------------------------------------------------------------
 
@@ -54,7 +54,7 @@ func _check_idle_state() -> int:
 		new_state = RUN
 	elif Input.is_action_pressed("shoot"):
 		new_state = SHOOT
-	elif Input.is_action_pressed("jump"):
+	elif Input.is_action_pressed("jump")  and is_on_floor():
 		new_state = JUMP
 		
 	return new_state
@@ -66,7 +66,7 @@ func _check_run_state() -> int:
 		new_state = IDLE
 	elif Input.is_action_pressed("shoot"):
 		new_state = RUN_SHOOT
-	elif Input.is_action_pressed("jump"):
+	elif Input.is_action_pressed("jump") and is_on_floor():
 		new_state = JUMP
 		
 	return new_state

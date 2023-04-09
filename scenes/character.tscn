@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://dbigh2spk2ws7"]
+[gd_scene load_steps=11 format=3 uid="uid://dbigh2spk2ws7"]
 
 [ext_resource type="Script" path="res://scripts/character.gd" id="1_4hamb"]
 [ext_resource type="Texture2D" uid="uid://dr5julgqsjxxh" path="res://assets/assets provisorios/bicho.png" id="2_6nu3q"]
@@ -7,6 +7,12 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3qsf3"]
 size = Vector2(55, 72.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6u2w4"]
+size = Vector2(54.2857, 72.8572)
+
+[sub_resource type="Animation" id="Animation_7b6wk"]
+length = 0.001
 
 [sub_resource type="Animation" id="Animation_f1uyg"]
 resource_name = "Shoot"
@@ -55,6 +61,7 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_kx566"]
 _data = {
+"RESET": SubResource("Animation_7b6wk"),
 "Shoot": SubResource("Animation_f1uyg"),
 "Walk": SubResource("Animation_tfrw1")
 }
@@ -69,13 +76,17 @@ script = ExtResource("1_4hamb")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 7.5)
 shape = SubResource("RectangleShape2D_3qsf3")
-metadata/_edit_lock_ = true
+
+[node name="Hitbox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+position = Vector2(-1.36239e-06, 7.85714)
+shape = SubResource("RectangleShape2D_6u2w4")
 
 [node name="Body" type="Sprite2D" parent="."]
 position = Vector2(0, -2.38419e-07)
 scale = Vector2(1.2, 1.2)
 texture = ExtResource("2_6nu3q")
-metadata/_edit_lock_ = true
 
 [node name="RightFoot" type="Sprite2D" parent="."]
 self_modulate = Color(0.843137, 0.843137, 0.847059, 1)
@@ -108,7 +119,6 @@ drag_right_margin = 0.3
 drag_bottom_margin = 0.3
 editor_draw_limits = true
 editor_draw_drag_margin = true
-metadata/_edit_lock_ = true
 
 [node name="Weapon" parent="." instance=ExtResource("4_trwtq")]
 position = Vector2(0, 17.5)

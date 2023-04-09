@@ -17,3 +17,9 @@ position = Vector2(50, -7)
 
 [node name="Marker2" type="Marker2D" parent="."]
 position = Vector2(51, 11.358)
+
+[node name="Ejector1" type="Marker2D" parent="."]
+position = Vector2(1.33333, -21)
+
+[node name="Ejector2" type="Marker2D" parent="."]
+position = Vector2(1.33333, 25)
