@@ -249,4 +249,4 @@ position = Vector2(144, 128)
 position = Vector2(1576, 104)
 
 [node name="CloneMachine" parent="." instance=ExtResource("4_to0ew")]
-position = Vector2(1485, 482)
+position = Vector2(1486, 484)

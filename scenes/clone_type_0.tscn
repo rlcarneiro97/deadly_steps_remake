@@ -1,0 +1,215 @@
+[gd_scene load_steps=11 format=3 uid="uid://vm1gotn4mp7i"]
+
+[ext_resource type="Script" path="res://scripts/clone_type_0.gd" id="1_kgu6l"]
+[ext_resource type="Texture2D" uid="uid://dr5julgqsjxxh" path="res://assets/assets provisorios/bicho.png" id="1_wo0lw"]
+[ext_resource type="Texture2D" uid="uid://b136icvxg24vs" path="res://assets/teste/circulo.png" id="2_ujkpo"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_curvv"]
+size = Vector2(55, 56.5714)
+
+[sub_resource type="Animation" id="Animation_7b6wk"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 0.341176, 0.352941, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("RightFoot:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 0.341176, 0.352941, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("LeftFoot:self_modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 0.341176, 0.352941, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_f1uyg"]
+resource_name = "Shoot"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Weapon:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 17.5), Vector2(0, 15.5), Vector2(0, 17.5)]
+}
+
+[sub_resource type="Animation" id="Animation_tfrw1"]
+resource_name = "Walk"
+length = 0.2
+loop_mode = 1
+step = 1.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("RightFoot:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(13.75, 38.75), Vector2(23.75, 38.75), Vector2(13.75, 38.75)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("LeftFoot:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(-15, 38.75), Vector2(-25, 38.75), Vector2(-15, 38.75)]
+}
+
+[sub_resource type="Animation" id="Animation_gadv4"]
+resource_name = "DestroyCloneType0"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 0.341176, 0.352941, 1), Color(1, 0.341176, 0.352941, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("RightFoot:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 0.341176, 0.352941, 1), Color(1, 0.341176, 0.352941, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("LeftFoot:self_modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 0.341176, 0.352941, 1), Color(1, 0.341176, 0.352941, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_1rpdg"]
+resource_name = "Clone_Type_0_Walk"
+length = 0.2
+loop_mode = 1
+step = 1.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("RightFoot:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(13.75, 38.75), Vector2(23.75, 38.75), Vector2(13.75, 38.75)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("LeftFoot:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(-15, 38.75), Vector2(-25, 38.75), Vector2(-15, 38.75)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_kx566"]
+_data = {
+"DestroyCloneType0": SubResource("Animation_gadv4"),
+"RESET": SubResource("Animation_7b6wk"),
+"Shoot": SubResource("Animation_f1uyg"),
+"Walk": SubResource("Animation_tfrw1"),
+"WalkCloneType0": SubResource("Animation_1rpdg")
+}
+
+[node name="CloneType0" type="Area2D" groups=["enemy"]]
+scale = Vector2(0.7, 0.7)
+collision_layer = 4
+collision_mask = 2307
+gravity_space_override = 1
+script = ExtResource("1_kgu6l")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 0.285713)
+shape = SubResource("RectangleShape2D_curvv")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+self_modulate = Color(1, 0.341176, 0.352941, 1)
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("1_wo0lw")
+flip_h = true
+
+[node name="RightFoot" type="Sprite2D" parent="."]
+self_modulate = Color(1, 0.341176, 0.352941, 1)
+y_sort_enabled = true
+position = Vector2(13.75, 38.75)
+scale = Vector2(0.364688, 0.178183)
+texture = ExtResource("2_ujkpo")
+
+[node name="LeftFoot" type="Sprite2D" parent="."]
+self_modulate = Color(1, 0.341176, 0.352941, 1)
+y_sort_enabled = true
+position = Vector2(-15, 38.75)
+scale = Vector2(0.364687, 0.178183)
+texture = ExtResource("2_ujkpo")
+
+[node name="WalkAnim" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_kx566")
+}
+
+[node name="DestroyAnim" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_kx566")
+}
+
+[connection signal="body_shape_entered" from="." to="." method="_on_body_shape_entered"]
