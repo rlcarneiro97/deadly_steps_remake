@@ -11,6 +11,6 @@ func skip() -> void:
 		next_scene_validator = false
 		get_tree().change_scene_to_file("res://scenes/"+self.name.to_lower()+".tscn")
 
-func _on_area_entered(area):
-	if area.name == "Hitbox":
+func _on_body_entered(body):
+	if body.name == "Character":
 		next_scene_validator = true

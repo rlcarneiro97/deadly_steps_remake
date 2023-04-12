@@ -9,7 +9,7 @@ size = Vector2(14, 2)
 [node name="Bullet" type="Area2D"]
 scale = Vector2(0.5, 0.5)
 collision_layer = 2048
-collision_mask = 1089
+collision_mask = 1351
 script = ExtResource("1_uuno7")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -30,5 +30,6 @@ fixed_fps = 30
 direction = Vector2(0, 1)
 gravity = Vector2(0, 0)
 
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

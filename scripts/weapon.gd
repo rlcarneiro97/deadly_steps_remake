@@ -1,15 +1,16 @@
 extends Node2D
 
-var vel = 800
-var dir = Vector2()
-var interval = .1
-var last_shoot = 0
-var precision = 0.05
+var bullet_velocity := 800
+var bullet_damage := 1
+var direction_vector := Vector2()
+var shooting_interval := .1
+var last_shoot := 0.0
+var shooting_precision := 0.05
 
 @onready var weaponSprite = $WeaponSprite
 @onready var marker = $Marker1
 @onready var ejector = $Ejector1
-#@onready var ejector2 = $Ejector2
+
 var pre_bullet = preload("res://scenes/bullet.tscn")
 var pre_sheel_casing = preload("res://scenes/sheel_casing.tscn")
 
@@ -31,19 +32,16 @@ func orientation() -> bool:
 
 func shoot(delta) -> void:
 	
-	var vector = Vector2()
-	
 	if last_shoot <= 0:
-
 		var sheelCasingInstance = pre_sheel_casing.instantiate(PackedScene.GEN_EDIT_STATE_DISABLED)
 		sheelCasingInstance.global_position = ejector.global_position
 		sheelCasingInstance.rotation_degrees = rotation_degrees
 		
 		randomize()
-		vector = Vector2(0, -1)
-		vector.x += randf_range(-.5, .5)
+		direction_vector = Vector2(0, -1)
+		direction_vector.x += randf_range(-.5, .5)
 		
-		sheelCasingInstance.setDirection(vector)
+		sheelCasingInstance.setDirection(direction_vector)
 		get_parent().get_parent().add_child(sheelCasingInstance)
 		
 #		---------------------------------------------------------------------------------------
@@ -53,14 +51,16 @@ func shoot(delta) -> void:
 		bulletInstance.rotation_degrees = rotation_degrees
 		
 		randomize()
-		vector.x = cos(rotation)
-		vector.y = sin(rotation)
-		vector.x += randf_range(-precision, precision)
-		vector.y += randf_range(-precision, precision)
+		direction_vector.x = cos(rotation)
+		direction_vector.y = sin(rotation)
+		direction_vector.x += randf_range(-shooting_precision, shooting_precision)
+		direction_vector.y += randf_range(-shooting_precision, shooting_precision)
 		
-		bulletInstance.setDirection(vector)
+		bulletInstance.setDirection(direction_vector)
+		bulletInstance.setVelocity(bullet_velocity)
+		bulletInstance.setBulletDamage(bullet_damage)
 		get_parent().get_parent().add_child(bulletInstance)
-		last_shoot = interval
+		last_shoot = shooting_interval
 	
 	if last_shoot > 0:
 		last_shoot -= delta

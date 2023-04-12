@@ -9,6 +9,11 @@ var current_state = IDLE
 var speed = 300.0
 var jump_force = -850.0
 var gravity = 2000
+var life = 200.0
+
+# variaveis de damage
+var damage_receive := 0
+var is_in_damage := false
 
 @onready var weapon = $Weapon
 @onready var body = $Body
@@ -42,6 +47,8 @@ func _physics_process(delta):
 		FALL_SHOOT:
 			_fall_shoot_state(delta)
 #			print("FALL_SHOOT")
+
+	applyContinuosDamage()
 
 #-------------------------------------------------------------------------------
 
@@ -278,3 +285,26 @@ func _set_state(new_state) -> void:
 	if new_state != current_state:
 		enter_state = true
 	current_state = new_state
+
+#-------------------------------------------------------------------------------
+
+#OTHERS
+
+func applyContinuosDamage():
+	
+	print(life)
+	
+	if self.is_in_damage and self.life > 0:
+		self.life -= self.damage_receive
+	
+	if not self.life:
+		OptionsController.reload_game()
+
+func _on_hitbox_area_entered(area):
+	if area.is_in_group("enemy"):
+		self.damage_receive = area.getEnemyDamage()
+		self.is_in_damage = true
+
+func _on_hitbox_area_exited(area):
+	if area.is_in_group("enemy"):
+		self.is_in_damage = false

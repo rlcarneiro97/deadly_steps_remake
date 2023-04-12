@@ -33,6 +33,7 @@ tracks/0/keys = {
 [sub_resource type="Animation" id="Animation_tfrw1"]
 resource_name = "Walk"
 length = 0.2
+loop_mode = 1
 step = 1.0
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -69,7 +70,7 @@ _data = {
 [node name="Character" type="CharacterBody2D"]
 scale = Vector2(0.7, 0.7)
 collision_layer = 2
-collision_mask = 837
+collision_mask = 833
 platform_floor_layers = 0
 script = ExtResource("1_4hamb")
 
@@ -78,6 +79,8 @@ position = Vector2(0, 7.5)
 shape = SubResource("RectangleShape2D_3qsf3")
 
 [node name="Hitbox" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 2052
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
 position = Vector2(-1.36239e-06, 7.85714)
@@ -132,3 +135,6 @@ libraries = {
 libraries = {
 "": SubResource("AnimationLibrary_kx566")
 }
+
+[connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]
+[connection signal="area_exited" from="Hitbox" to="." method="_on_hitbox_area_exited"]

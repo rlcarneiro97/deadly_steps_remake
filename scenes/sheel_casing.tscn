@@ -7,6 +7,7 @@
 size = Vector2(6, 2)
 
 [node name="Sheel_Casing" type="RigidBody2D"]
+z_index = 2
 collision_layer = 2048
 collision_mask = 0
 can_sleep = false
