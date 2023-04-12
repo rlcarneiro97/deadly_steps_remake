@@ -135,3 +135,6 @@ libraries = {
 libraries = {
 "": SubResource("AnimationLibrary_kx566")
 }
+
+[connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]
+[connection signal="area_exited" from="Hitbox" to="." method="_on_hitbox_area_exited"]

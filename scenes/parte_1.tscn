@@ -245,8 +245,8 @@ layer_0/tile_data = PackedInt32Array(1900544, 0, 1, 1966080, 0, 1, 2031616, 0, 1
 [node name="Character" parent="." instance=ExtResource("2_ek0wa")]
 position = Vector2(144, 128)
 
-[node name="Parte_2" parent="." instance=ExtResource("3_g8o2f")]
-position = Vector2(1576, 104)
-
 [node name="CloneMachine" parent="." instance=ExtResource("4_to0ew")]
 position = Vector2(1486, 484)
+
+[node name="Parte_2" parent="." instance=ExtResource("3_g8o2f")]
+position = Vector2(1576, 104)

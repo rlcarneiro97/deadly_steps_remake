@@ -1,5 +1,6 @@
 extends Area2D
 
+var enemy_damage := 1.0
 var enemy_velocity := 300
 var enemy_health := 5.0
 var direction := Vector2(-1, 0)
@@ -24,6 +25,9 @@ func destroyObject():
 	destroyAnim.play("DestroyCloneType0")
 	await destroyAnim.animation_finished
 	self.queue_free()
+
+func getEnemyDamage() -> float:
+	return self.enemy_damage
 
 func _on_body_shape_entered(_body_rid, body, _body_shape_index, _local_shape_index):
 	if body.name == "TileMap":

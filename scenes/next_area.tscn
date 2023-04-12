@@ -6,10 +6,11 @@
 size = Vector2(41, 122)
 
 [node name="NextArea" type="Area2D"]
+collision_mask = 2
 script = ExtResource("1_antw8")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-0.5, 0)
 shape = SubResource("RectangleShape2D_oh1e1")
 
-[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
