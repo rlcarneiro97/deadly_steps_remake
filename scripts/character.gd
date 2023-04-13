@@ -6,7 +6,7 @@ var enter_state = true
 var current_state = IDLE
 
 # coloquei como var para testar mecanicas de pulo, velocidados e gravidade variados
-var speed = 300.0
+var speed = 250.0
 var jump_force = -850.0
 var gravity = 2000
 var life = 200.0
@@ -151,6 +151,7 @@ func _idle_state(_delta) -> void:
 	
 	walkAnim.stop()
 	shootAnim.stop()
+	weapon.invisibleShootSprite()
 	
 	_apply_gravity(_delta)
 	_apply_move_and_slide()
@@ -161,6 +162,7 @@ func _idle_state(_delta) -> void:
 func _run_state(_delta) -> void:
 	
 	shootAnim.stop()
+	weapon.invisibleShootSprite()
 	
 	walkAnim.play("Walk")
 	_apply_gravity(_delta)
@@ -174,6 +176,7 @@ func _jump_state(_delta) -> void:
 	
 	walkAnim.stop()
 	shootAnim.stop()
+	weapon.invisibleShootSprite()
 	
 	if enter_state:
 		_apply_jump_force()
@@ -189,6 +192,7 @@ func _jump_state(_delta) -> void:
 func _fall_state(_delta) -> void:
 
 	walkAnim.stop()
+	weapon.invisibleShootSprite()
 
 	_apply_gravity(_delta)
 	_apply_movement()
@@ -200,13 +204,13 @@ func _fall_state(_delta) -> void:
 func _shoot_state(_delta) -> void:
 
 	walkAnim.stop()
-
 	weapon.shoot(_delta)
 	shootAnim.play("Shoot")
 	
 	_apply_gravity(_delta)
 	_apply_move_and_slide()
 	_apply_direction()
+	
 	
 	_set_state(_check_shoot_state())
 
@@ -292,7 +296,7 @@ func _set_state(new_state) -> void:
 
 func applyContinuosDamage():
 	
-	print(life)
+#	print(life)
 	
 	if self.is_in_damage and self.life > 0:
 		self.life -= self.damage_receive

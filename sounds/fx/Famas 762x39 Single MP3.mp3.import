@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bfrkayhb5nip4"
+path="res://.godot/imported/Famas 762x39 Single MP3.mp3-771bc15139f7913d67cfc24b259c4d90.mp3str"
+
+[deps]
+
+source_file="res://sounds/fx/Famas 762x39 Single MP3.mp3"
+dest_files=["res://.godot/imported/Famas 762x39 Single MP3.mp3-771bc15139f7913d67cfc24b259c4d90.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -2,6 +2,7 @@ extends Node2D
 
 @onready var bgMusicMenu = $BgMusicMenu
 @onready var bgMusicMission = $BgMusicMission
+@onready var explodeFX = $ExplodeFX
 
 func playBgMusicMenu():
 	bgMusicMenu.play()
@@ -14,6 +15,10 @@ func stopBgMusicMenu():
 	
 func stopBgMusicMission():
 	bgMusicMission.stop()
+	
+func playExplodeFX():
+	self.explodeFX.play()
+	await explodeFX.finished
 
 func _on_bg_music_menu_finished():
 	bgMusicMenu.play()

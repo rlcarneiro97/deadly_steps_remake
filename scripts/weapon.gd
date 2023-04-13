@@ -5,11 +5,13 @@ var bullet_damage := 1
 var direction_vector := Vector2()
 var shooting_interval := .1
 var last_shoot := 0.0
-var shooting_precision := 0.05
+var shooting_precision := 0.02
 
 @onready var weaponSprite = $WeaponSprite
 @onready var marker = $Marker1
 @onready var ejector = $Ejector1
+@onready var shoot_sprite = $Shoot1
+@onready var shootFX = $ShootFX
 
 var pre_bullet = preload("res://scenes/bullet.tscn")
 var pre_sheel_casing = preload("res://scenes/sheel_casing.tscn")
@@ -23,14 +25,18 @@ func orientation() -> bool:
 		weaponSprite.flip_v = true
 		marker = $Marker2
 		ejector = $Ejector2
+		shoot_sprite = $Shoot2
 		return true
 	else:
 		weaponSprite.flip_v = false
 		marker = $Marker1
 		ejector = $Ejector1
+		shoot_sprite = $Shoot1
 		return false
 
 func shoot(delta) -> void:
+	
+	self.invisibleShootSprite()
 	
 	if last_shoot <= 0:
 		var sheelCasingInstance = pre_sheel_casing.instantiate(PackedScene.GEN_EDIT_STATE_DISABLED)
@@ -47,6 +53,8 @@ func shoot(delta) -> void:
 #		---------------------------------------------------------------------------------------
 
 		var bulletInstance = pre_bullet.instantiate(PackedScene.GEN_EDIT_STATE_DISABLED)
+		self.shoot_sprite.visible = true
+		self.shootFX.play()
 		bulletInstance.global_position = marker.global_position
 		bulletInstance.rotation_degrees = rotation_degrees
 		
@@ -61,6 +69,10 @@ func shoot(delta) -> void:
 		bulletInstance.setBulletDamage(bullet_damage)
 		get_parent().get_parent().add_child(bulletInstance)
 		last_shoot = shooting_interval
-	
+		
 	if last_shoot > 0:
 		last_shoot -= delta
+
+func invisibleShootSprite() -> void:
+	$Shoot1.visible = false
+	$Shoot2.visible = false

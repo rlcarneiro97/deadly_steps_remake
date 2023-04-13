@@ -1,7 +1,7 @@
 extends Area2D
 
 var enemy_damage := 1.0
-var enemy_velocity := 300
+var enemy_velocity := 250
 var enemy_health := 5.0
 var direction := Vector2(-1, 0)
 @onready var walkAnim = $WalkAnim

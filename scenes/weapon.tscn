@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://d1bx3f0oguxhu"]
+[gd_scene load_steps=5 format=3 uid="uid://d1bx3f0oguxhu"]
 
 [ext_resource type="Script" path="res://scripts/weapon.gd" id="1_wnpr5"]
 [ext_resource type="Texture2D" uid="uid://bm2p04drrnm38" path="res://assets/armas/M4A1.png" id="2_mjygc"]
+[ext_resource type="Texture2D" uid="uid://d0lhb633i4tgj" path="res://assets/fx/shoot.png" id="3_05l51"]
+[ext_resource type="AudioStream" uid="uid://4dyjs0a5ad5q" path="res://sounds/fx/M4A1 556 Single MP3.mp3" id="4_hymcc"]
 
 [node name="Weapon" type="Node2D"]
 scale = Vector2(1.5, 1)
@@ -23,3 +25,22 @@ position = Vector2(1.33333, -21)
 
 [node name="Ejector2" type="Marker2D" parent="."]
 position = Vector2(1.33333, 25)
+
+[node name="Shoot1" type="Sprite2D" parent="."]
+visible = false
+self_modulate = Color(1, 1, 0.470588, 1)
+position = Vector2(68, -8)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("3_05l51")
+
+[node name="Shoot2" type="Sprite2D" parent="."]
+visible = false
+self_modulate = Color(1, 1, 0.470588, 1)
+position = Vector2(69.3333, 11)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("3_05l51")
+
+[node name="ShootFX" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_hymcc")
+volume_db = 15.0
+area_mask = 0
