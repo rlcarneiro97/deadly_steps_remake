@@ -25,7 +25,7 @@ OptionsController="*res://scripts/options_controller.gd"
 window/stretch/mode="viewport"
 window/handheld/orientation=6
 window/vsync/vsync_mode=2
-mouse_cursor/custom_image="res://assets/fx/crosshair176.png"
+mouse_cursor/custom_image="res://assets/fx/crosshair184.png"
 mouse_cursor/custom_image_hotspot=Vector2(25, 32)
 
 [editor]

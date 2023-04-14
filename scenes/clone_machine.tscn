@@ -1,15 +1,16 @@
-[gd_scene load_steps=8 format=3 uid="uid://oknyiuimldq7"]
+[gd_scene load_steps=9 format=3 uid="uid://oknyiuimldq7"]
 
 [ext_resource type="Script" path="res://scripts/clone_machine.gd" id="1_bve03"]
 [ext_resource type="Texture2D" uid="uid://dil48uc0hg7xf" path="res://assets/assets provisorios/Clone Machine.png" id="1_vip6v"]
-[ext_resource type="AudioStream" uid="uid://5hifj44o7vt2" path="res://sounds/fx/metal_button_press2.wav" id="3_jbb5y"]
+[ext_resource type="Texture2D" uid="uid://dpxav81qxc47h" path="res://assets/fx/explosion.png" id="3_nssb2"]
+[ext_resource type="Gradient" uid="uid://cydj0hwyh8shl" path="res://assets/fx/new_gradient.tres" id="4_almgp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_73lwc"]
 size = Vector2(144, 128)
 
 [sub_resource type="Animation" id="Animation_rolhp"]
 resource_name = "CloneMachineDestroy"
-length = 0.5
+length = 0.8
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -17,10 +18,22 @@ tracks/0/path = NodePath("Sprite2D:self_modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5),
+"times": PackedFloat32Array(0, 0.8),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ExplosionEffect:emitting")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
 }
 
 [sub_resource type="Animation" id="Animation_ofgtk"]
@@ -70,8 +83,18 @@ autostart = true
 [node name="Marker2D" type="Marker2D" parent="."]
 position = Vector2(-22.8571, 17.1428)
 
-[node name="DamageFX" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("3_jbb5y")
-volume_db = 20.0
+[node name="ExplosionEffect" type="CPUParticles2D" parent="."]
+emitting = false
+amount = 40
+lifetime = 0.8
+one_shot = true
+explosiveness = 1.0
+texture = ExtResource("3_nssb2")
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 100.0
+initial_velocity_max = 200.0
+scale_amount_min = 0.1
+color_ramp = ExtResource("4_almgp")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

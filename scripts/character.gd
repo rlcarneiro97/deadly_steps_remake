@@ -153,6 +153,7 @@ func _idle_state(_delta) -> void:
 	shootAnim.stop()
 	weapon.invisibleShootSprite()
 	
+	_remove_residual_movement()
 	_apply_gravity(_delta)
 	_apply_move_and_slide()
 	_apply_direction()
@@ -207,10 +208,10 @@ func _shoot_state(_delta) -> void:
 	weapon.shoot(_delta)
 	shootAnim.play("Shoot")
 	
+	_remove_residual_movement()
 	_apply_gravity(_delta)
 	_apply_move_and_slide()
 	_apply_direction()
-	
 	
 	_set_state(_check_shoot_state())
 
@@ -285,6 +286,10 @@ func _apply_direction() -> void:
 func _apply_jump_force() -> void:
 	velocity.y = jump_force
 
+func _remove_residual_movement() -> void:
+	var direction = Input.get_axis("left", "right")
+	velocity.x = direction * 0
+
 func _set_state(new_state) -> void:
 	if new_state != current_state:
 		enter_state = true
@@ -300,15 +305,17 @@ func applyContinuosDamage():
 	
 	if self.is_in_damage and self.life > 0:
 		self.life -= self.damage_receive
+		MusicController.playDamageCharFX()
 	
 	if not self.life:
-		OptionsController.reload_game()
+		MusicController.playDieEnemyFX()
+		OptionsController.dieCharacter()
 
 func _on_hitbox_area_entered(area):
-	if area.is_in_group("enemy"):
+	if area.is_in_group("enemy_type_0"):
 		self.damage_receive = area.getEnemyDamage()
 		self.is_in_damage = true
 
 func _on_hitbox_area_exited(area):
-	if area.is_in_group("enemy"):
+	if area.is_in_group("enemy_type_0"):
 		self.is_in_damage = false

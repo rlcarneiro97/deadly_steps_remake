@@ -24,6 +24,9 @@ func setVelocity(velocity) -> void:
 func setBulletDamage(damage) -> void:
 	self.bullet_damage = damage
 	
+func getBulletDamage() -> float:
+	return self.bullet_damage
+	
 func bulletMovement(delta) -> void:
 	if not can_move:
 		return
@@ -50,11 +53,11 @@ func _on_visible_on_screen_notifier_2d_screen_exited():
 func _on_body_entered(body):
 	if body.name == "CloneMachine":
 		self.setTargetImpact(1)
-		body.applyDamage(bullet_damage)
+#		caso especial onde a clone machine nao tem area pra colidir, entao chamo o metodo pra lidar com o dano dela, mas isso eh pra ser responsabilidade dela
+		body.applyDamage(self.bullet_damage)
 	self.applyDamage()
 
 func _on_area_entered(area):
-	if area.is_in_group("enemy"):
+	if area.is_in_group("enemy_type_0"):
 		self.setTargetImpact(2)
-		area.applyDamage(bullet_damage)
 	self.applyDamage()

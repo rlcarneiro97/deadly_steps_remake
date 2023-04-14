@@ -1,9 +1,12 @@
 extends Node2D
 
 var bullet_velocity := 800
-var bullet_damage := 1
+var bullet_damage := 1.0
 var direction_vector := Vector2()
-var shooting_interval := .1
+# M4A1 = .12 e dano = 1.0
+# FAMAS = .05 e dano .5
+# AK45 = .13 e dano 2.0
+var shooting_interval := .12
 var last_shoot := 0.0
 var shooting_precision := 0.02
 
@@ -11,7 +14,6 @@ var shooting_precision := 0.02
 @onready var marker = $Marker1
 @onready var ejector = $Ejector1
 @onready var shoot_sprite = $Shoot1
-@onready var shootFX = $ShootFX
 
 var pre_bullet = preload("res://scenes/bullet.tscn")
 var pre_sheel_casing = preload("res://scenes/sheel_casing.tscn")
@@ -54,7 +56,7 @@ func shoot(delta) -> void:
 
 		var bulletInstance = pre_bullet.instantiate(PackedScene.GEN_EDIT_STATE_DISABLED)
 		self.shoot_sprite.visible = true
-		self.shootFX.play()
+		MusicController.playShootFX()
 		bulletInstance.global_position = marker.global_position
 		bulletInstance.rotation_degrees = rotation_degrees
 		
@@ -64,9 +66,9 @@ func shoot(delta) -> void:
 		direction_vector.x += randf_range(-shooting_precision, shooting_precision)
 		direction_vector.y += randf_range(-shooting_precision, shooting_precision)
 		
-		bulletInstance.setDirection(direction_vector)
-		bulletInstance.setVelocity(bullet_velocity)
-		bulletInstance.setBulletDamage(bullet_damage)
+		bulletInstance.setDirection(self.direction_vector)
+		bulletInstance.setVelocity(self.bullet_velocity)
+		bulletInstance.setBulletDamage(self.bullet_damage)
 		get_parent().get_parent().add_child(bulletInstance)
 		last_shoot = shooting_interval
 		
