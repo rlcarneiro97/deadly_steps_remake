@@ -5,6 +5,7 @@ var cloneMachineDamage := 13.0
 @onready var destroyAnim = $DestroyAnim
 @onready var timer = $Timer
 @onready var marker = $Marker2D
+@onready var explosionEffect = $ExplosionEffect
 var pre_enemy = preload("res://scenes/clone_type_0.tscn")
 
 func _ready():
@@ -17,12 +18,15 @@ func instanceEnemy() -> void:
 	
 func applyDamage(bullet_damage):
 	
+	MusicController.playDamageFX()
 	cloneMachineDamage -= bullet_damage
 	
-	if not cloneMachineDamage:
+	if cloneMachineDamage <= 0:
 		self.destroyObject()
 	
 func destroyObject():
+	
+	MusicController.playExplodeFX()
 	self.collision_layer = 0
 	destroyAnim.play("CloneMachineDestroy")
 	await destroyAnim.animation_finished

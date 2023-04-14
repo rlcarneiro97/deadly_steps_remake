@@ -1,11 +1,13 @@
-[gd_scene load_steps=11 format=3 uid="uid://vm1gotn4mp7i"]
+[gd_scene load_steps=13 format=3 uid="uid://vm1gotn4mp7i"]
 
 [ext_resource type="Script" path="res://scripts/clone_type_0.gd" id="1_kgu6l"]
 [ext_resource type="Texture2D" uid="uid://dr5julgqsjxxh" path="res://assets/assets provisorios/bicho.png" id="1_wo0lw"]
 [ext_resource type="Texture2D" uid="uid://b136icvxg24vs" path="res://assets/teste/circulo.png" id="2_ujkpo"]
+[ext_resource type="Texture2D" uid="uid://dpxav81qxc47h" path="res://assets/fx/explosion.png" id="4_t3xke"]
+[ext_resource type="Gradient" uid="uid://cydj0hwyh8shl" path="res://assets/fx/new_gradient.tres" id="5_2t1w3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_curvv"]
-size = Vector2(55, 56.5714)
+size = Vector2(55, 69.4286)
 
 [sub_resource type="Animation" id="Animation_gadv4"]
 resource_name = "DestroyCloneType0"
@@ -45,6 +47,18 @@ tracks/2/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(1, 0.341176, 0.352941, 1), Color(1, 0.341176, 0.352941, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("DieEffect:emitting")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
 }
 
 [sub_resource type="Animation" id="Animation_7b6wk"]
@@ -171,7 +185,7 @@ _data = {
 "WalkCloneType0": SubResource("Animation_1rpdg")
 }
 
-[node name="CloneType0" type="Area2D" groups=["enemy"]]
+[node name="CloneType0" type="Area2D" groups=["enemy_type_0"]]
 z_index = 1
 scale = Vector2(0.7, 0.7)
 collision_layer = 4
@@ -180,7 +194,8 @@ gravity_space_override = 1
 script = ExtResource("1_kgu6l")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 0.285713)
+position = Vector2(0, 6.71429)
+scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_curvv")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -213,4 +228,20 @@ libraries = {
 "": SubResource("AnimationLibrary_kx566")
 }
 
+[node name="DieEffect" type="CPUParticles2D" parent="."]
+emitting = false
+amount = 40
+lifetime = 0.5
+one_shot = true
+explosiveness = 1.0
+texture = ExtResource("4_t3xke")
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 100.0
+initial_velocity_max = 200.0
+scale_amount_min = 0.1
+scale_amount_max = 0.5
+color_ramp = ExtResource("5_2t1w3")
+
+[connection signal="area_shape_entered" from="." to="." method="_on_area_shape_entered"]
 [connection signal="body_shape_entered" from="." to="." method="_on_body_shape_entered"]

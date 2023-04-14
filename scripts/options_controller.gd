@@ -11,3 +11,7 @@ func exit_game() -> void:
 	
 func reload_game() -> void:
 	get_tree().reload_current_scene()
+	
+func dieCharacter() -> void:
+	MusicController.stopBgMusicMission()
+	get_tree().change_scene_to_packed(load("res://scenes/menu.tscn"))

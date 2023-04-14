@@ -6,7 +6,7 @@ var enter_state = true
 var current_state = IDLE
 
 # coloquei como var para testar mecanicas de pulo, velocidados e gravidade variados
-var speed = 300.0
+var speed = 250.0
 var jump_force = -850.0
 var gravity = 2000
 var life = 200.0
@@ -151,7 +151,9 @@ func _idle_state(_delta) -> void:
 	
 	walkAnim.stop()
 	shootAnim.stop()
+	weapon.invisibleShootSprite()
 	
+	_remove_residual_movement()
 	_apply_gravity(_delta)
 	_apply_move_and_slide()
 	_apply_direction()
@@ -161,6 +163,7 @@ func _idle_state(_delta) -> void:
 func _run_state(_delta) -> void:
 	
 	shootAnim.stop()
+	weapon.invisibleShootSprite()
 	
 	walkAnim.play("Walk")
 	_apply_gravity(_delta)
@@ -174,6 +177,7 @@ func _jump_state(_delta) -> void:
 	
 	walkAnim.stop()
 	shootAnim.stop()
+	weapon.invisibleShootSprite()
 	
 	if enter_state:
 		_apply_jump_force()
@@ -189,6 +193,7 @@ func _jump_state(_delta) -> void:
 func _fall_state(_delta) -> void:
 
 	walkAnim.stop()
+	weapon.invisibleShootSprite()
 
 	_apply_gravity(_delta)
 	_apply_movement()
@@ -200,10 +205,10 @@ func _fall_state(_delta) -> void:
 func _shoot_state(_delta) -> void:
 
 	walkAnim.stop()
-
 	weapon.shoot(_delta)
 	shootAnim.play("Shoot")
 	
+	_remove_residual_movement()
 	_apply_gravity(_delta)
 	_apply_move_and_slide()
 	_apply_direction()
@@ -281,6 +286,10 @@ func _apply_direction() -> void:
 func _apply_jump_force() -> void:
 	velocity.y = jump_force
 
+func _remove_residual_movement() -> void:
+	var direction = Input.get_axis("left", "right")
+	velocity.x = direction * 0
+
 func _set_state(new_state) -> void:
 	if new_state != current_state:
 		enter_state = true
@@ -292,19 +301,21 @@ func _set_state(new_state) -> void:
 
 func applyContinuosDamage():
 	
-	print(life)
+#	print(life)
 	
 	if self.is_in_damage and self.life > 0:
 		self.life -= self.damage_receive
+		MusicController.playDamageCharFX()
 	
 	if not self.life:
-		OptionsController.reload_game()
+		MusicController.playDieEnemyFX()
+		OptionsController.dieCharacter()
 
 func _on_hitbox_area_entered(area):
-	if area.is_in_group("enemy"):
+	if area.is_in_group("enemy_type_0"):
 		self.damage_receive = area.getEnemyDamage()
 		self.is_in_damage = true
 
 func _on_hitbox_area_exited(area):
-	if area.is_in_group("enemy"):
+	if area.is_in_group("enemy_type_0"):
 		self.is_in_damage = false

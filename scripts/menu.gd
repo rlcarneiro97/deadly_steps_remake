@@ -49,3 +49,11 @@ func _on_play_button_pressed():
 
 func _on_quit_button_pressed():
 	OptionsController.exit_game()
+
+# LIMPAR OBJETOS DA TELA
+
+func _on_area_2d_area_entered(area):
+	area.queue_free()
+
+func _on_area_2d_body_entered(body):
+	body.queue_free()
