@@ -8,17 +8,19 @@ var cloneMachineDamage := 13.0
 @onready var explosionEffect = $ExplosionEffect
 var pre_enemy = preload("res://scenes/clone_type_0.tscn")
 
-func _ready():
-	self.instanceEnemy()
-
 func instanceEnemy() -> void:
 	var enemyInstance = pre_enemy.instantiate(PackedScene.GEN_EDIT_STATE_DISABLED)
 	enemyInstance.global_position = marker.global_position
-	get_parent().get_parent().add_child(enemyInstance)
+	get_parent().add_child(enemyInstance)
 	
+	if timer.wait_time == 0.1:
+		timer.one_shot = false
+		timer.wait_time = 4
+		timer.start()
+		
 func applyDamage(bullet_damage):
 	
-	MusicController.playDamageFX()
+	MusicController.playDamageCloneMachineFX()
 	cloneMachineDamage -= bullet_damage
 	
 	if cloneMachineDamage <= 0:

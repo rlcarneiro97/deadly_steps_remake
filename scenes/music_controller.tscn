@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://cr4d05dbw4djl"]
+[gd_scene load_steps=11 format=3 uid="uid://cr4d05dbw4djl"]
 
 [ext_resource type="Script" path="res://scripts/music_controller.gd" id="1_xumwx"]
 [ext_resource type="AudioStream" uid="uid://dgdsw3gmumis0" path="res://sounds/bg/12. Pompeii.mp3" id="2_yhbnu"]
@@ -6,7 +6,10 @@
 [ext_resource type="AudioStream" uid="uid://b6a5dtpv0rage" path="res://sounds/fx/explodemini.wav" id="4_6ye7f"]
 [ext_resource type="AudioStream" uid="uid://4dyjs0a5ad5q" path="res://sounds/fx/M4A1 556 Single MP3.mp3" id="4_o8pej"]
 [ext_resource type="AudioStream" uid="uid://5hifj44o7vt2" path="res://sounds/fx/metal_button_press2.wav" id="4_subbu"]
+[ext_resource type="AudioStream" uid="uid://b42lpmgllqamy" path="res://sounds/fx/Male1.wav" id="6_cwbup"]
 [ext_resource type="AudioStream" uid="uid://b54hj3qt34joh" path="res://sounds/fx/roblox-death-sound-effect.mp3" id="6_rumce"]
+[ext_resource type="AudioStream" uid="uid://cevk5qgth5lba" path="res://sounds/fx/Gunshot8.wav" id="8_clfpo"]
+[ext_resource type="AudioStream" uid="uid://d06c8eap47ht4" path="res://sounds/fx/heal.wav" id="10_alhwv"]
 
 [node name="MusicController" type="Node2D"]
 script = ExtResource("1_xumwx")
@@ -22,8 +25,12 @@ stream = ExtResource("4_o8pej")
 volume_db = 10.0
 area_mask = 0
 
-[node name="DamageFX" type="AudioStreamPlayer2D" parent="."]
+[node name="DamageCloneMachineFX" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("4_subbu")
+volume_db = 15.0
+
+[node name="DamageEnemyFX" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_cwbup")
 volume_db = 15.0
 
 [node name="DamageCharFX" type="AudioStreamPlayer2D" parent="."]
@@ -34,15 +41,19 @@ volume_db = 24.0
 stream = ExtResource("4_6ye7f")
 volume_db = 24.0
 
-[node name="DamageEnemyFX" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("6_rumce")
-volume_db = 24.0
-pitch_scale = 0.9
+[node name="BulletImpactFX" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("8_clfpo")
+volume_db = 15.0
 
 [node name="DieEnemyFX" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("6_rumce")
-volume_db = 24.0
-pitch_scale = 0.6
+stream = ExtResource("6_cwbup")
+volume_db = 15.0
+pitch_scale = 0.9
+
+[node name="HealFX" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("10_alhwv")
+volume_db = 15.0
+pitch_scale = 1.5
 
 [connection signal="finished" from="BgMusicMenu" to="." method="_on_bg_music_menu_finished"]
 [connection signal="finished" from="BgMusicMission" to="." method="_on_bg_music_mission_finished"]

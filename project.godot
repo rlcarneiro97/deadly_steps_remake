@@ -18,13 +18,16 @@ config/icon="res://icon.svg"
 [autoload]
 
 MusicController="*res://scenes/music_controller.tscn"
-OptionsController="*res://scripts/options_controller.gd"
+OptionsController="*res://scenes/options_controller.tscn"
 
 [display]
 
+window/size/viewport_width=1366
+window/size/viewport_height=768
+window/size/window_width_override=683
+window/size/window_height_override=384
 window/stretch/mode="viewport"
-window/handheld/orientation=6
-window/vsync/vsync_mode=2
+window/stretch/aspect="ignore"
 mouse_cursor/custom_image="res://assets/fx/crosshair184.png"
 mouse_cursor/custom_image_hotspot=Vector2(25, 32)
 
@@ -78,7 +81,7 @@ reload_scene={
 2d_physics/layer_2="character"
 2d_physics/layer_3="enemy"
 2d_physics/layer_4="lever"
-2d_physics/layer_5="heath"
+2d_physics/layer_5="heal"
 2d_physics/layer_6="weapon"
 2d_physics/layer_7="clone_machine"
 2d_physics/layer_8="savepoint"

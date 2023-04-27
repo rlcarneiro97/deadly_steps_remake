@@ -1,6 +1,5 @@
 extends Node2D
 
-#var musica_menu = get_tree().get_node("AudioStreamPlayer")
 @onready var play_button = $PlayButton
 @onready var load_button = $LoadButton
 @onready var quit_button = $QuitButton
@@ -9,18 +8,12 @@ extends Node2D
 @export var control_scene = preload("res://scenes/controls.tscn")
 
 func _ready():
-
 	play_button.flat = true
 	load_button.flat = true
 	quit_button.flat = true
+#	Hud.visible = true
 	
 	MusicController.playBgMusicMenu()
-
-func _process(_delta):
-	pass
-
-#func exit_game() -> void:
-#	get_tree().quit()
 
 # efeitos de botao
 func _on_play_button_mouse_entered():
@@ -49,11 +42,3 @@ func _on_play_button_pressed():
 
 func _on_quit_button_pressed():
 	OptionsController.exit_game()
-
-# LIMPAR OBJETOS DA TELA
-
-func _on_area_2d_area_entered(area):
-	area.queue_free()
-
-func _on_area_2d_body_entered(body):
-	body.queue_free()

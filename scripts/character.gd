@@ -9,7 +9,6 @@ var current_state = IDLE
 var speed = 250.0
 var jump_force = -850.0
 var gravity = 2000
-var life = 200.0
 
 # variaveis de damage
 var damage_receive := 0
@@ -19,34 +18,28 @@ var is_in_damage := false
 @onready var body = $Body
 @onready var walkAnim = $WalkAnim
 @onready var shootAnim = $ShootAnim
+@onready var damageAnim = $DamageAnim
+@onready var dieAnim = $DieAnim
 
 func _physics_process(delta):
 	
 	match current_state:
 		IDLE:
 			_idle_state(delta)
-#			print("IDLE")
 		RUN:
 			_run_state(delta)
-#			print("RUN")
 		JUMP:
 			_jump_state(delta)
-#			print("JUMP")
 		FALL:
 			_fall_state(delta)
-#			print("FALL")
 		SHOOT:
 			_shoot_state(delta)
-#			print("SHOOT")
 		RUN_SHOOT:
 			_run_shoot_state(delta)
-#			print("RUN_SHOOT")
 		JUMP_SHOOT:
 			_jump_shoot_state(delta)
-#			print("JUMP_SHOOT")
 		FALL_SHOOT:
 			_fall_shoot_state(delta)
-#			print("FALL_SHOOT")
 
 	applyContinuosDamage()
 
@@ -301,21 +294,26 @@ func _set_state(new_state) -> void:
 
 func applyContinuosDamage():
 	
-#	print(life)
-	
-	if self.is_in_damage and self.life > 0:
-		self.life -= self.damage_receive
+	if self.is_in_damage and OptionsController.lifeCharacter > 0:
+		OptionsController.update_life(-self.damage_receive)
 		MusicController.playDamageCharFX()
+		damageAnim.play("DamageAnim")
 	
-	if not self.life:
+	if OptionsController.lifeCharacter <= 0:
+		damageAnim.play("DieAnim")
+		await damageAnim.animation_finished
 		MusicController.playDieEnemyFX()
 		OptionsController.dieCharacter()
 
 func _on_hitbox_area_entered(area):
-	if area.is_in_group("enemy_type_0"):
+	if area.is_in_group("enemy_type_0") or area.is_in_group("enemy_type_1"):
 		self.damage_receive = area.getEnemyDamage()
 		self.is_in_damage = true
+	if area.is_in_group("fully_heal"):
+		if OptionsController.lifeCharacter < OptionsController.BASE_LIFE_CHARACTER:
+			OptionsController.update_life(OptionsController.BASE_LIFE_CHARACTER - OptionsController.lifeCharacter)
+			area.destroy()
 
 func _on_hitbox_area_exited(area):
-	if area.is_in_group("enemy_type_0"):
+	if area.is_in_group("enemy_type_0") or area.is_in_group("enemy_type_1"):
 		self.is_in_damage = false

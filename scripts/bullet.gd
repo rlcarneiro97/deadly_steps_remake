@@ -43,6 +43,7 @@ func setTargetImpact(target) -> void:
 	
 func applyDamage():
 	self.can_move = false
+	MusicController.playBulletImpactFX()
 	bulletDamageAnim.play("BulletDamage")
 	await bulletDamageAnim.animation_finished
 	self.queue_free()
@@ -58,6 +59,6 @@ func _on_body_entered(body):
 	self.applyDamage()
 
 func _on_area_entered(area):
-	if area.is_in_group("enemy_type_0"):
+	if area.is_in_group("enemy_type_0") or area.is_in_group("enemy_type_1"):
 		self.setTargetImpact(2)
 	self.applyDamage()
