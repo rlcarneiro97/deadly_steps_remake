@@ -4,11 +4,13 @@ extends Node2D
 @onready var bgMusicMission = $BgMusicMission
 
 @onready var shootFX = $ShootFX
-@onready var damageFX = $DamageFX
+@onready var bulletImpactFX = $BulletImpactFX
+@onready var damageCloneMachineFX = $DamageCloneMachineFX
 @onready var damageCharFX = $DamageCharFX
 @onready var explodeFX = $ExplodeFX
 @onready var damageEnemyFX = $DamageEnemyFX
 @onready var dieEnemyFX = $DieEnemyFX
+@onready var healFX = $HealFX
 
 #-------------------------------------------------------------------------------
 	
@@ -33,8 +35,11 @@ func stopBgMusicMission():
 func playShootFX():
 	self.shootFX.play()
 	
-func playDamageFX():
-	self.damageFX.play()
+func playBulletImpactFX():
+	self.bulletImpactFX.play()
+	
+func playDamageCloneMachineFX():
+	self.damageCloneMachineFX.play()
 	
 func playDamageCharFX():
 	self.damageCharFX.play()
@@ -48,6 +53,9 @@ func playDamageEnemyFX():
 	
 func playDieEnemyFX():
 	self.dieEnemyFX.play()
+	
+func playHealFX():
+	self.healFX.play()
 
 #-------------------------------------------------------------------------------
 	

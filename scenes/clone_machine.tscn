@@ -77,7 +77,8 @@ libraries = {
 }
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 4.0
+wait_time = 0.1
+one_shot = true
 autostart = true
 
 [node name="Marker2D" type="Marker2D" parent="."]

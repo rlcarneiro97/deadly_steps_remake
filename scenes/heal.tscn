@@ -1,0 +1,63 @@
+[gd_scene load_steps=7 format=3 uid="uid://bk2kmud8k6bnx"]
+
+[ext_resource type="Script" path="res://scripts/heal.gd" id="1_gkrmq"]
+[ext_resource type="Texture2D" uid="uid://lr40bc8wbhet" path="res://assets/assets provisorios/vida.png" id="1_w06wf"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_odskb"]
+size = Vector2(26, 26)
+
+[sub_resource type="Animation" id="Animation_l33u0"]
+resource_name = "IdleHealAnim"
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0.8, 0.8), Vector2(1e-05, 0.8), Vector2(0.8, 0.8)]
+}
+
+[sub_resource type="Animation" id="Animation_gupav"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.8, 0.8)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_hlkk4"]
+_data = {
+"IdleHealAnim": SubResource("Animation_l33u0"),
+"RESET": SubResource("Animation_gupav")
+}
+
+[node name="Heal" type="Area2D" groups=["fully_heal"]]
+y_sort_enabled = true
+collision_layer = 16
+collision_mask = 2
+script = ExtResource("1_gkrmq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_odskb")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("1_w06wf")
+
+[node name="IdleHealAnim" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_hlkk4")
+}
