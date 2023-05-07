@@ -8,7 +8,7 @@
 [ext_resource type="Gradient" uid="uid://cydj0hwyh8shl" path="res://assets/fx/new_gradient.tres" id="6_xgr1k"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3qsf3"]
-size = Vector2(55, 72.5)
+size = Vector2(51.4286, 70)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6u2w4"]
 size = Vector2(54.2857, 72.8572)
@@ -228,7 +228,8 @@ platform_floor_layers = 0
 script = ExtResource("1_4hamb")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 7.5)
+position = Vector2(1.87329e-06, 7.85714)
+scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_3qsf3")
 
 [node name="Hitbox" type="Area2D" parent="."]

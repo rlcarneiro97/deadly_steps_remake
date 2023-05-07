@@ -180,7 +180,7 @@ _data = {
 "RESET": SubResource("Animation_cb3q8")
 }
 
-[node name="CloneType1" type="Area2D" groups=["enemy_type_1"]]
+[node name="CloneType1" type="Area2D" groups=["continuos_damage", "enemy"]]
 z_index = 1
 scale = Vector2(0.7, 0.7)
 collision_layer = 4

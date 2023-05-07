@@ -13,6 +13,8 @@ config_version=5
 config/name="deadly_steps_remake"
 run/main_scene="res://scenes/menu.tscn"
 config/features=PackedStringArray("4.0", "Mobile")
+run/max_fps=60
+run/low_processor_mode=true
 config/icon="res://icon.svg"
 
 [autoload]
