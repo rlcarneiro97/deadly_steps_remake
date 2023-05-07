@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://cxtm26lwor1sf"]
+[gd_scene load_steps=15 format=3 uid="uid://cxtm26lwor1sf"]
 
 [ext_resource type="Texture2D" uid="uid://dia41kri5i4p4" path="res://assets/tilemap/Tilemap.png" id="1_1qmau"]
 [ext_resource type="PackedScene" uid="uid://dbigh2spk2ws7" path="res://scenes/character.tscn" id="2_ek0wa"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://cos6ydlxsujk0" path="res://scenes/path_enemy.tscn" id="5_p5kqs"]
 [ext_resource type="PackedScene" uid="uid://dwths7glfdqyo" path="res://scenes/clone_type_1.tscn" id="6_wlnp7"]
 [ext_resource type="PackedScene" uid="uid://dr7kje8k8aoc5" path="res://scenes/hud.tscn" id="7_xqx0k"]
+[ext_resource type="PackedScene" uid="uid://lwnnixkxnrjb" path="res://scenes/clone_type_2.tscn" id="8_vws84"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_nrrg4"]
 polygon = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
@@ -288,6 +289,9 @@ position = Vector2(377.084, 68)
 
 [node name="Character" parent="." instance=ExtResource("2_ek0wa")]
 position = Vector2(80, 144)
+
+[node name="CloneType2" parent="." instance=ExtResource("8_vws84")]
+position = Vector2(360, 496)
 
 [editable path="PathEnemy"]
 [editable path="PathEnemy2"]

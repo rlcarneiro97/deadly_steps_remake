@@ -292,12 +292,7 @@ func _set_state(new_state) -> void:
 
 #OTHERS
 
-func applyContinuosDamage():
-	
-	if self.is_in_damage and OptionsController.lifeCharacter > 0:
-		OptionsController.update_life(-self.damage_receive)
-		MusicController.playDamageCharFX()
-		damageAnim.play("DamageAnim")
+func verifyDieCharacter() -> void:
 	
 	if OptionsController.lifeCharacter <= 0:
 		damageAnim.play("DieAnim")
@@ -305,15 +300,35 @@ func applyContinuosDamage():
 		MusicController.playDieEnemyFX()
 		OptionsController.dieCharacter()
 
+func applyContinuosDamage():
+	
+	if self.is_in_damage and OptionsController.lifeCharacter > 0:
+		OptionsController.update_life(-self.damage_receive)
+		MusicController.playDamageCharFX()
+		damageAnim.play("DamageAnim")
+	
+	verifyDieCharacter()
+
+func applyBulletDamage(bullet_damage):
+	
+	if OptionsController.lifeCharacter > 0:
+		OptionsController.update_life(-bullet_damage)
+		MusicController.playDamageCharFX()
+		damageAnim.play("DamageAnim")
+		
+	verifyDieCharacter()
+
 func _on_hitbox_area_entered(area):
-	if area.is_in_group("enemy_type_0") or area.is_in_group("enemy_type_1"):
+	if area.is_in_group("continuos_damage"):
 		self.damage_receive = area.getEnemyDamage()
 		self.is_in_damage = true
 	if area.is_in_group("fully_heal"):
 		if OptionsController.lifeCharacter < OptionsController.BASE_LIFE_CHARACTER:
 			OptionsController.update_life(OptionsController.BASE_LIFE_CHARACTER - OptionsController.lifeCharacter)
 			area.destroy()
+	if area.is_in_group("bullet"):
+		self.applyBulletDamage(area.getBulletDamage())
 
 func _on_hitbox_area_exited(area):
-	if area.is_in_group("enemy_type_0") or area.is_in_group("enemy_type_1"):
+	if area.is_in_group("continuos_damage"):
 		self.is_in_damage = false
