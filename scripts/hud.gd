@@ -1,17 +1,22 @@
 extends Control
 
 const BASE_LIFE_BAR := 156
-const PIXELS_BY_POINTS := .78
+#se alterar a quantidade de vida, divida a base_life_bar pela base_life_character
+var PIXELS_BY_POINTS := .0
 
 @onready var bar = $CanvasLayer/LifeBar/Life/Bar
 
 func _ready():
 	bar.size.x = self.get_life_character_in_pixels()
-
+	PIXELS_BY_POINTS = generate_const_pixels_by_points()
+	
 func _process(_delta):
 	update_life_bar()
 	pass
-	
+
+func generate_const_pixels_by_points() -> float:
+	return (BASE_LIFE_BAR / OptionsController.BASE_LIFE_CHARACTER)
+
 func get_life_character_in_pixels() -> float:
 	return OptionsController.lifeCharacter * PIXELS_BY_POINTS
 

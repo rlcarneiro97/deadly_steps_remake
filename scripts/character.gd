@@ -11,7 +11,7 @@ var jump_force = -850.0
 var gravity = 2000
 
 # variaveis de damage
-var damage_receive := 0
+var damage_receive := 0.0
 var is_in_damage := false
 
 @onready var weapon = $Weapon

@@ -1,6 +1,6 @@
 extends Node2D
 
-var BASE_LIFE_CHARACTER := 200.0
+var BASE_LIFE_CHARACTER := 30.0
 var lifeCharacter := 0.0
 var menu_scene = preload("res://scenes/menu.tscn")
 
