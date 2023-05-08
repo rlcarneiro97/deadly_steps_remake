@@ -1,6 +1,6 @@
 extends Area2D
 
-var enemy_damage := 1.0
+var enemy_damage := .4
 var enemy_health := 3.0
 
 @onready var destroyAnim = $DestroyAnim
