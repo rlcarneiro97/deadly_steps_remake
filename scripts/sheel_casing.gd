@@ -6,7 +6,7 @@ var direction := Vector2()
 func _ready():
 	apply_physics_effect()
 
-func setDirection(dir) -> void:
+func set_direction(dir) -> void:
 	self.direction = dir
 
 func apply_physics_effect() -> void:

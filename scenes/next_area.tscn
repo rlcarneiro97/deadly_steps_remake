@@ -6,6 +6,7 @@
 size = Vector2(41, 122)
 
 [node name="NextArea" type="Area2D"]
+collision_layer = 4096
 collision_mask = 2
 script = ExtResource("1_antw8")
 

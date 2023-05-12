@@ -1,9 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://lwnnixkxnrjb"]
+[gd_scene load_steps=16 format=3 uid="uid://lwnnixkxnrjb"]
 
 [ext_resource type="Texture2D" uid="uid://dr5julgqsjxxh" path="res://assets/assets provisorios/bicho.png" id="1_a2itf"]
 [ext_resource type="Script" path="res://scripts/clone_type_2.gd" id="1_gw26q"]
-[ext_resource type="Texture2D" uid="uid://b136icvxg24vs" path="res://assets/teste/circulo.png" id="2_p4pxi"]
+[ext_resource type="Texture2D" uid="uid://06ah05lt6nyg" path="res://assets/formas geométricas/circulo.png" id="2_blomk"]
 [ext_resource type="PackedScene" uid="uid://co754qs3udgo" path="res://scenes/enemy_weapon.tscn" id="3_j0tt5"]
+[ext_resource type="Texture2D" uid="uid://us06atcfy1j2" path="res://assets/assets provisorios/seta.png" id="4_ckjwe"]
 [ext_resource type="Texture2D" uid="uid://dpxav81qxc47h" path="res://assets/fx/explosion.png" id="5_dag1n"]
 [ext_resource type="Gradient" uid="uid://cydj0hwyh8shl" path="res://assets/fx/new_gradient.tres" id="6_flb23"]
 
@@ -74,6 +75,70 @@ tracks/4/keys = {
 "values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
 }
 
+[sub_resource type="Animation" id="Animation_f8pj3"]
+resource_name = "DestroyCloneType4"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Body:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 0.341176, 0.352941, 1), Color(1, 0.341176, 0.352941, 0), Color(1, 0.341176, 0.352941, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("DieEffect:emitting")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("EnemyWeapon:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("LeftHand:self_modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 0.341176, 0.352941, 1), Color(1, 0.341176, 0.352941, 0), Color(1, 0.341176, 0.352941, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("RightHand:self_modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 0.341176, 0.352941, 1), Color(1, 0.341176, 0.352941, 0), Color(1, 0.341176, 0.352941, 1)]
+}
+
 [sub_resource type="Animation" id="Animation_1m10t"]
 length = 0.001
 tracks/0/type = "value"
@@ -136,11 +201,98 @@ tracks/4/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 1)]
 }
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("LeftHand:self_modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 0.341176, 0.352941, 1)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("RightHand:self_modulate")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 0.341176, 0.352941, 1)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_um244"]
 _data = {
 "DestroyCloneType2": SubResource("Animation_kcebl"),
+"DestroyCloneType4": SubResource("Animation_f8pj3"),
 "RESET": SubResource("Animation_1m10t")
+}
+
+[sub_resource type="Animation" id="Animation_05123"]
+resource_name = "IdleAnim"
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("LeftHand:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-31, 0), Vector2(-31, 10)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("RightHand:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(32, 0), Vector2(32, 10)]
+}
+
+[sub_resource type="Animation" id="Animation_cb3q8"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("LeftHand:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-31, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("RightHand:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(32, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_cym35"]
+_data = {
+"IdleAnim": SubResource("Animation_05123"),
+"RESET": SubResource("Animation_cb3q8")
 }
 
 [node name="CloneType2" type="Area2D" groups=["enemy"]]
@@ -153,6 +305,22 @@ script = ExtResource("1_gw26q")
 position = Vector2(0, 6.71429)
 shape = SubResource("RectangleShape2D_4a0km")
 
+[node name="LeftHand" type="Sprite2D" parent="."]
+visible = false
+self_modulate = Color(1, 0.341176, 0.352941, 1)
+y_sort_enabled = true
+position = Vector2(-31, 0)
+scale = Vector2(0.364687, 0.178183)
+texture = ExtResource("2_blomk")
+
+[node name="RightHand" type="Sprite2D" parent="."]
+visible = false
+self_modulate = Color(1, 0.341176, 0.352941, 1)
+y_sort_enabled = true
+position = Vector2(32, 0)
+scale = Vector2(0.364688, 0.178183)
+texture = ExtResource("2_blomk")
+
 [node name="Body" type="Sprite2D" parent="."]
 self_modulate = Color(1, 0.341176, 0.352941, 1)
 scale = Vector2(1.2, 1.2)
@@ -163,14 +331,20 @@ self_modulate = Color(1, 0.341176, 0.352941, 1)
 y_sort_enabled = true
 position = Vector2(13.75, 38.75)
 scale = Vector2(0.364688, 0.178183)
-texture = ExtResource("2_p4pxi")
+texture = ExtResource("2_blomk")
 
 [node name="LeftFoot" type="Sprite2D" parent="."]
 self_modulate = Color(1, 0.341176, 0.352941, 1)
 y_sort_enabled = true
 position = Vector2(-15, 38.75)
 scale = Vector2(0.364687, 0.178183)
-texture = ExtResource("2_p4pxi")
+texture = ExtResource("2_blomk")
+
+[node name="Arrow" type="Sprite2D" parent="."]
+visible = false
+self_modulate = Color(1, 0, 0, 1)
+position = Vector2(0, -48.5714)
+texture = ExtResource("4_ckjwe")
 
 [node name="EnemyWeapon" parent="." instance=ExtResource("3_j0tt5")]
 position = Vector2(0, 17.5)
@@ -178,6 +352,12 @@ position = Vector2(0, 17.5)
 [node name="DestroyAnim" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_um244")
+}
+
+[node name="IdleAnim" type="AnimationPlayer" parent="."]
+speed_scale = 1.5
+libraries = {
+"": SubResource("AnimationLibrary_cym35")
 }
 
 [node name="DieEffect" type="CPUParticles2D" parent="."]

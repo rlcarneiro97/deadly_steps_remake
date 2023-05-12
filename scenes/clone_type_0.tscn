@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scripts/clone_type_0.gd" id="1_kgu6l"]
 [ext_resource type="Texture2D" uid="uid://dr5julgqsjxxh" path="res://assets/assets provisorios/bicho.png" id="1_wo0lw"]
-[ext_resource type="Texture2D" uid="uid://b136icvxg24vs" path="res://assets/teste/circulo.png" id="2_ujkpo"]
+[ext_resource type="Texture2D" uid="uid://06ah05lt6nyg" path="res://assets/formas geométricas/circulo.png" id="2_ibw88"]
 [ext_resource type="Texture2D" uid="uid://dpxav81qxc47h" path="res://assets/fx/explosion.png" id="4_t3xke"]
 [ext_resource type="Gradient" uid="uid://cydj0hwyh8shl" path="res://assets/fx/new_gradient.tres" id="5_2t1w3"]
 
@@ -167,7 +167,7 @@ y_sort_enabled = true
 position = Vector2(-28, -5)
 rotation = 0.436332
 scale = Vector2(0.45, 0.22)
-texture = ExtResource("2_ujkpo")
+texture = ExtResource("2_ibw88")
 
 [node name="Body" type="Sprite2D" parent="."]
 self_modulate = Color(1, 0.341176, 0.352941, 1)
@@ -181,21 +181,21 @@ y_sort_enabled = true
 position = Vector2(20, -5)
 rotation = 0.436332
 scale = Vector2(0.45, 0.22)
-texture = ExtResource("2_ujkpo")
+texture = ExtResource("2_ibw88")
 
 [node name="RightFoot" type="Sprite2D" parent="."]
 self_modulate = Color(1, 0.341176, 0.352941, 1)
 y_sort_enabled = true
 position = Vector2(13.75, 38.75)
 scale = Vector2(0.364688, 0.178183)
-texture = ExtResource("2_ujkpo")
+texture = ExtResource("2_ibw88")
 
 [node name="LeftFoot" type="Sprite2D" parent="."]
 self_modulate = Color(1, 0.341176, 0.352941, 1)
 y_sort_enabled = true
 position = Vector2(-15, 38.75)
 scale = Vector2(0.364687, 0.178183)
-texture = ExtResource("2_ujkpo")
+texture = ExtResource("2_ibw88")
 
 [node name="WalkAnim" type="AnimationPlayer" parent="."]
 libraries = {
