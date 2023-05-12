@@ -11,9 +11,8 @@ func _ready():
 	play_button.flat = true
 	load_button.flat = true
 	quit_button.flat = true
-#	Hud.visible = true
 	
-	MusicController.playBgMusicMenu()
+	MusicController.play_bg_music_menu()  
 
 # efeitos de botao
 func _on_play_button_mouse_entered():
@@ -26,7 +25,6 @@ func _on_load_button_mouse_entered():
 	load_button.flat = false
 
 func _on_load_button_mouse_exited():
-	pass # Replace with function body.
 	load_button.flat = true
 
 func _on_quit_button_mouse_entered():

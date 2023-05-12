@@ -1,50 +1,48 @@
 extends Area2D
 
 var can_move := true
-var enemy_damage := .4
-var enemy_velocity := 250
-var enemy_health := 5.0
+@export var enemy_speed := 220
+@export var enemy_damage := .4
+@export var enemy_health := 5.0
 var direction := Vector2(-1, 0)
-@onready var walkAnim = $WalkAnim
-@onready var destroyAnim = $DestroyAnim
+@onready var walk_anim = $WalkAnim
+@onready var destroy_anim = $DestroyAnim
 
 func _process(delta):
-	self.attackMovement(delta)
+	self.attack_movement(delta)
 
-func attackMovement(delta) -> void:
+func attack_movement(delta) -> void:
 	if not can_move:
 		return
 	else:
-		walkAnim.play("WalkCloneType0")
-		self.translate(direction * enemy_velocity * delta)
+		walk_anim.play("WalkCloneType0")
+		self.translate(direction * enemy_speed * delta)
 
-func applyDamage(bullet_damage) -> void:
+func apply_damage(bullet_damage) -> void:
 	
 	self.enemy_health -= bullet_damage
-	MusicController.playDamageEnemyFX()
+	MusicController.play_damage_enemy_FX()
 	
 	if enemy_health <= 0:
-		self.destroyObject()
+		self.destroy_object()
 	
-func destroyObject():
+func destroy_object():
 	self.can_move = false
-	walkAnim.stop()
+	walk_anim.stop()
 	self.collision_layer = 0
-	destroyAnim.play("DestroyCloneType0")
-	await destroyAnim.animation_finished
-	MusicController.playDieEnemyFX()
+	destroy_anim.play("DestroyCloneType0")
+	await destroy_anim.animation_finished
+	MusicController.play_die_enemy_FX()
 	self.queue_free()
 
-func getEnemyDamage() -> float:
+func get_enemy_damage() -> float:
 	return self.enemy_damage
 
 func _on_body_shape_entered(_body_rid, body, _body_shape_index, _local_shape_index):
 	if body.name == "TileMap":
 		self.can_move = false
-		self.destroyObject()
-#		MusicController.playDieEnemyFX()
-#		self.queue_free()
+		self.destroy_object()
 
 func _on_area_shape_entered(_area_rid, area, _area_shape_index, _local_shape_index):
 	if area.is_in_group("bullet"):
-		self.applyDamage(area.getBulletDamage())
+		self.apply_damage(area.get_bullet_damage())

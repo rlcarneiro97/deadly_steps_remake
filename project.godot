@@ -91,6 +91,8 @@ reload_scene={
 2d_physics/layer_10="truck"
 2d_physics/layer_11="scenario"
 2d_physics/layer_12="bullet"
+2d_physics/layer_13="teleport"
+2d_physics/layer_14="enemy_bullet"
 
 [rendering]
 

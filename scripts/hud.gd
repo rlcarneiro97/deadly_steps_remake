@@ -18,7 +18,7 @@ func generate_const_pixels_by_points() -> float:
 	return (BASE_LIFE_BAR / OptionsController.BASE_LIFE_CHARACTER)
 
 func get_life_character_in_pixels() -> float:
-	return OptionsController.lifeCharacter * PIXELS_BY_POINTS
+	return OptionsController.life_character * PIXELS_BY_POINTS
 
 func update_life_bar() -> void:
 	if bar.size.x > 0 or bar.size.x < self.BASE_LIFE_BAR:

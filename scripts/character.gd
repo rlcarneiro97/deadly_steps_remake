@@ -6,9 +6,9 @@ var enter_state = true
 var current_state = IDLE
 
 # coloquei como var para testar mecanicas de pulo, velocidados e gravidade variados
-var speed = 250.0
-var jump_force = -850.0
-var gravity = 2000
+@export var speed = 220.0
+@export var jump_force = -850.0
+@export var gravity = 2000
 
 # variaveis de damage
 var damage_receive := 0.0
@@ -16,10 +16,9 @@ var is_in_damage := false
 
 @onready var weapon = $Weapon
 @onready var body = $Body
-@onready var walkAnim = $WalkAnim
-@onready var shootAnim = $ShootAnim
-@onready var damageAnim = $DamageAnim
-@onready var dieAnim = $DieAnim
+@onready var walk_anim = $WalkAnim
+@onready var shoot_anim = $ShootAnim
+@onready var damage_anim = $DamageAnim
 
 func _physics_process(delta):
 	
@@ -41,7 +40,7 @@ func _physics_process(delta):
 		FALL_SHOOT:
 			_fall_shoot_state(delta)
 
-	applyContinuosDamage()
+	apply_continuos_damage()
 
 #-------------------------------------------------------------------------------
 
@@ -142,9 +141,9 @@ func _check_fall_shoot_state() -> int:
 
 func _idle_state(_delta) -> void:
 	
-	walkAnim.stop()
-	shootAnim.stop()
-	weapon.invisibleShootSprite()
+	walk_anim.stop()
+	shoot_anim.stop()
+	weapon.invisible_shoot_sprite()
 	
 	_remove_residual_movement()
 	_apply_gravity(_delta)
@@ -155,10 +154,10 @@ func _idle_state(_delta) -> void:
 	
 func _run_state(_delta) -> void:
 	
-	shootAnim.stop()
-	weapon.invisibleShootSprite()
+	shoot_anim.stop()
+	weapon.invisible_shoot_sprite()
 	
-	walkAnim.play("Walk")
+	walk_anim.play("Walk")
 	_apply_gravity(_delta)
 	_apply_movement()
 	_apply_move_and_slide()
@@ -168,9 +167,9 @@ func _run_state(_delta) -> void:
 	
 func _jump_state(_delta) -> void:
 	
-	walkAnim.stop()
-	shootAnim.stop()
-	weapon.invisibleShootSprite()
+	walk_anim.stop()
+	shoot_anim.stop()
+	weapon.invisible_shoot_sprite()
 	
 	if enter_state:
 		_apply_jump_force()
@@ -185,8 +184,8 @@ func _jump_state(_delta) -> void:
 
 func _fall_state(_delta) -> void:
 
-	walkAnim.stop()
-	weapon.invisibleShootSprite()
+	walk_anim.stop()
+	weapon.invisible_shoot_sprite()
 
 	_apply_gravity(_delta)
 	_apply_movement()
@@ -197,9 +196,9 @@ func _fall_state(_delta) -> void:
 
 func _shoot_state(_delta) -> void:
 
-	walkAnim.stop()
+	walk_anim.stop()
 	weapon.shoot(_delta)
-	shootAnim.play("Shoot")
+	shoot_anim.play("Shoot")
 	
 	_remove_residual_movement()
 	_apply_gravity(_delta)
@@ -211,9 +210,9 @@ func _shoot_state(_delta) -> void:
 func _run_shoot_state(_delta) -> void:
 	
 	weapon.shoot(_delta)
-	shootAnim.play("Shoot")
+	shoot_anim.play("Shoot")
 	
-	walkAnim.play("Walk")
+	walk_anim.play("Walk")
 	_apply_gravity(_delta)
 	_apply_movement()
 	_apply_move_and_slide()
@@ -223,9 +222,9 @@ func _run_shoot_state(_delta) -> void:
 	
 func _jump_shoot_state(_delta) -> void:
 	
-	walkAnim.stop()
+	walk_anim.stop()
 	weapon.shoot(_delta)
-	shootAnim.play("Shoot")
+	shoot_anim.play("Shoot")
 	
 	if enter_state:
 		enter_state = false
@@ -239,9 +238,9 @@ func _jump_shoot_state(_delta) -> void:
 
 func _fall_shoot_state(_delta) -> void:
 	
-	walkAnim.stop()
+	walk_anim.stop()
 	weapon.shoot(_delta)
-	shootAnim.play("Shoot")
+	shoot_anim.play("Shoot")
 
 	_apply_gravity(_delta)
 	_apply_movement()
@@ -292,42 +291,42 @@ func _set_state(new_state) -> void:
 
 #OTHERS
 
-func verifyDieCharacter() -> void:
+func verify_die_character() -> void:
 	
-	if OptionsController.lifeCharacter <= 0:
-		damageAnim.play("DieAnim")
-		await damageAnim.animation_finished
-		MusicController.playDieEnemyFX()
-		OptionsController.dieCharacter()
+	if OptionsController.life_character <= 0:
+		damage_anim.play("DieAnim")
+		await damage_anim.animation_finished
+		MusicController.play_die_enemy_FX()
+		OptionsController.die_character()
 
-func applyContinuosDamage():
+func apply_continuos_damage():
 	
-	if self.is_in_damage and OptionsController.lifeCharacter > 0:
+	if self.is_in_damage and OptionsController.life_character > 0:
 		OptionsController.update_life(-self.damage_receive)
-		MusicController.playDamageCharFX()
-		damageAnim.play("DamageAnim")
+		MusicController.play_damage_char_FX()
+		damage_anim.play("DamageAnim")
 	
-	verifyDieCharacter()
+	verify_die_character()
 
-func applyBulletDamage(bullet_damage):
+func apply_bullet_damage(bullet_damage):
 	
-	if OptionsController.lifeCharacter > 0:
+	if OptionsController.life_character > 0:
 		OptionsController.update_life(-bullet_damage)
-		MusicController.playDamageCharFX()
-		damageAnim.play("DamageAnim")
+		MusicController.play_damage_char_FX()
+		damage_anim.play("DamageAnim")
 		
-	verifyDieCharacter()
+	verify_die_character()
 
 func _on_hitbox_area_entered(area):
 	if area.is_in_group("continuos_damage"):
-		self.damage_receive = area.getEnemyDamage()
+		self.damage_receive = area.get_enemy_damage()
 		self.is_in_damage = true
 	if area.is_in_group("fully_heal"):
-		if OptionsController.lifeCharacter < OptionsController.BASE_LIFE_CHARACTER:
-			OptionsController.update_life(OptionsController.BASE_LIFE_CHARACTER - OptionsController.lifeCharacter)
+		if OptionsController.life_character < OptionsController.BASE_LIFE_CHARACTER:
+			OptionsController.update_life(OptionsController.BASE_LIFE_CHARACTER - OptionsController.life_character)
 			area.destroy()
-	if area.is_in_group("bullet"):
-		self.applyBulletDamage(area.getBulletDamage())
+	if area.is_in_group("enemy_bullet"):
+		self.apply_bullet_damage(area.get_bullet_damage())
 
 func _on_hitbox_area_exited(area):
 	if area.is_in_group("continuos_damage"):

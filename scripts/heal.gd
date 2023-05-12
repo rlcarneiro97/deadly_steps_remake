@@ -6,5 +6,5 @@ func _ready():
 	idle_heal_anim.play("IdleHealAnim")
 
 func destroy() -> void:
-	MusicController.playHealFX()
+	MusicController.play_heal_FX()
 	self.queue_free()
