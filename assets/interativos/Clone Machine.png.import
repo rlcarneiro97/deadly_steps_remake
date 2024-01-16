@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ba2u0bavngk17"
-path="res://.godot/imported/savepoint.png-b5b42caf59f7e3dbf88cefe6a77d766f.ctex"
+uid="uid://dil48uc0hg7xf"
+path="res://.godot/imported/Clone Machine.png-19f790f41ff11f3c897386e1b48396d2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/assets provisorios/savepoint.png"
-dest_files=["res://.godot/imported/savepoint.png-b5b42caf59f7e3dbf88cefe6a77d766f.ctex"]
+source_file="res://assets/interativos/Clone Machine.png"
+dest_files=["res://.godot/imported/Clone Machine.png-19f790f41ff11f3c897386e1b48396d2.ctex"]
 
 [params]
 

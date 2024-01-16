@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://lr40bc8wbhet"
-path="res://.godot/imported/vida.png-5c88e78e71d157160ca04853ee0f8845.ctex"
+uid="uid://o36yikwn8qc5"
+path="res://.godot/imported/Alavanca_2.png-6f7c6fd92b2f009e518d6599ac689cd7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/assets provisorios/vida.png"
-dest_files=["res://.godot/imported/vida.png-5c88e78e71d157160ca04853ee0f8845.ctex"]
+source_file="res://assets/interativos/Alavanca_2.png"
+dest_files=["res://.godot/imported/Alavanca_2.png-6f7c6fd92b2f009e518d6599ac689cd7.ctex"]
 
 [params]
 

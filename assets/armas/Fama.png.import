@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dt5nacx16r6lv"
-path="res://.godot/imported/M4A1.png-1caf47ba13354be1bb23f0c285a5ea1d.ctex"
+uid="uid://b6h80s5r43en6"
+path="res://.godot/imported/Fama.png-6131955131c6cbddaa6fc3b33515c488.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/assets provisorios/M4A1.png"
-dest_files=["res://.godot/imported/M4A1.png-1caf47ba13354be1bb23f0c285a5ea1d.ctex"]
+source_file="res://assets/armas/Fama.png"
+dest_files=["res://.godot/imported/Fama.png-6131955131c6cbddaa6fc3b33515c488.ctex"]
 
 [params]
 

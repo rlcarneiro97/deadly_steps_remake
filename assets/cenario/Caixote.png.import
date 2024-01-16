@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bdsx2yhem0ei"
-path="res://.godot/imported/cercado com arame farpado.png-19fa0296db45b725becfa207e5fc269a.ctex"
+uid="uid://cfq81jdrj2o8e"
+path="res://.godot/imported/Caixote.png-0ac9cb2acbfeedbe1b1e3f9c4a4fda94.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/assets provisorios/cercado com arame farpado.png"
-dest_files=["res://.godot/imported/cercado com arame farpado.png-19fa0296db45b725becfa207e5fc269a.ctex"]
+source_file="res://assets/cenario/Caixote.png"
+dest_files=["res://.godot/imported/Caixote.png-0ac9cb2acbfeedbe1b1e3f9c4a4fda94.ctex"]
 
 [params]
 

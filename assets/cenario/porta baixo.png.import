@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dil48uc0hg7xf"
-path="res://.godot/imported/Clone Machine.png-db572b3ff65c155944942e38fbe8b3a8.ctex"
+uid="uid://bg2aelvfpbexp"
+path="res://.godot/imported/porta baixo.png-18dca79a1bce8808dd0585d1f7136361.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/assets provisorios/Clone Machine.png"
-dest_files=["res://.godot/imported/Clone Machine.png-db572b3ff65c155944942e38fbe8b3a8.ctex"]
+source_file="res://assets/cenario/porta baixo.png"
+dest_files=["res://.godot/imported/porta baixo.png-18dca79a1bce8808dd0585d1f7136361.ctex"]
 
 [params]
 

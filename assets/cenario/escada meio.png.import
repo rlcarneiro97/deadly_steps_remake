@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://us06atcfy1j2"
-path="res://.godot/imported/seta.png-fbc35462b526b96ef5f33f1f15012e1e.ctex"
+uid="uid://bhlsd2bi6i7gk"
+path="res://.godot/imported/escada meio.png-3630ffafccf43d1750436e0144c70051.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/assets provisorios/seta.png"
-dest_files=["res://.godot/imported/seta.png-fbc35462b526b96ef5f33f1f15012e1e.ctex"]
+source_file="res://assets/cenario/escada meio.png"
+dest_files=["res://.godot/imported/escada meio.png-3630ffafccf43d1750436e0144c70051.ctex"]
 
 [params]
 

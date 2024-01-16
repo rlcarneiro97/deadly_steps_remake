@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://o36yikwn8qc5"
-path="res://.godot/imported/Alavanca_2.png-10d01fe054b23e3ff53d2ce4e1f87a75.ctex"
+uid="uid://dpojivkamqmiw"
+path="res://.godot/imported/AK_45.png-fc9cf712ee500a6d1974d6051db2ab51.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/assets provisorios/Alavanca_2.png"
-dest_files=["res://.godot/imported/Alavanca_2.png-10d01fe054b23e3ff53d2ce4e1f87a75.ctex"]
+source_file="res://assets/armas/AK_45.png"
+dest_files=["res://.godot/imported/AK_45.png-fc9cf712ee500a6d1974d6051db2ab51.ctex"]
 
 [params]
 

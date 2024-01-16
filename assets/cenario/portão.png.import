@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bep4h1ublo37t"
-path="res://.godot/imported/crosshair184.png-6384029aac5219f58bb7e84a9a33c7ee.ctex"
+uid="uid://bvlhbwckvs3t5"
+path="res://.godot/imported/portão.png-a30b0e460a3a3f82fda77cf264aefaa0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/fx/crosshair184.png"
-dest_files=["res://.godot/imported/crosshair184.png-6384029aac5219f58bb7e84a9a33c7ee.ctex"]
+source_file="res://assets/cenario/portão.png"
+dest_files=["res://.godot/imported/portão.png-a30b0e460a3a3f82fda77cf264aefaa0.ctex"]
 
 [params]
 
