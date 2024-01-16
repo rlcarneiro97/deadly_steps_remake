@@ -305,9 +305,6 @@ position = Vector2(0, 336)
 [node name="escada_baixo" parent="escada_cima" instance=ExtResource("15_8k6mx")]
 position = Vector2(0, 384)
 
-[node name="Character" parent="." instance=ExtResource("2_mt7we")]
-position = Vector2(24.0001, 496)
-
 [node name="LimitArea" parent="." instance=ExtResource("4_5ac0x")]
 position = Vector2(-21, 464)
 scale = Vector2(1, 1.2)
@@ -383,6 +380,9 @@ position = Vector2(1484, 483)
 
 [node name="pickable_weapon" parent="." instance=ExtResource("16_uanos")]
 position = Vector2(120, 296)
+
+[node name="Character" parent="." instance=ExtResource("2_mt7we")]
+position = Vector2(24.0001, 496)
 
 [editable path="PathEnemy2"]
 [editable path="PathEnemy3"]

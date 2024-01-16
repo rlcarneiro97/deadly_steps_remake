@@ -290,12 +290,12 @@ position = Vector2(377.084, 68)
 [node name="MovementAnim" parent="PathEnemy2" index="1"]
 speed_scale = 0.8
 
-[node name="Character" parent="." instance=ExtResource("2_ek0wa")]
-position = Vector2(80, 144)
-
 [node name="pickable_weapon2" parent="." instance=ExtResource("8_fwhp2")]
 position = Vector2(96, 496)
 type_weapon = 1
+
+[node name="Character" parent="." instance=ExtResource("2_ek0wa")]
+position = Vector2(80, 144)
 
 [editable path="PathEnemy"]
 [editable path="PathEnemy2"]

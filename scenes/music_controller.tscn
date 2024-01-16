@@ -27,7 +27,6 @@ volume_db = -5.0
 [node name="ShootFX" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("4_o8pej")
 volume_db = 10.0
-area_mask = 0
 
 [node name="DamageCloneMachineFX" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("4_subbu")
