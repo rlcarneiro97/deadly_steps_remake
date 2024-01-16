@@ -1,10 +1,11 @@
 [gd_scene load_steps=4 format=3 uid="uid://co754qs3udgo"]
 
 [ext_resource type="Script" path="res://scripts/enemy_weapon.gd" id="1_70kub"]
-[ext_resource type="Texture2D" uid="uid://dt5nacx16r6lv" path="res://assets/assets provisorios/M4A1.png" id="2_n4jwm"]
+[ext_resource type="Texture2D" uid="uid://dt5nacx16r6lv" path="res://assets/armas/M4A2.png" id="2_n4jwm"]
 [ext_resource type="Texture2D" uid="uid://d0lhb633i4tgj" path="res://assets/fx/shoot.png" id="3_0v63h"]
 
 [node name="EnemyWeapon" type="Node2D"]
+rotation = -1.5885
 scale = Vector2(1.5, 1)
 script = ExtResource("1_70kub")
 

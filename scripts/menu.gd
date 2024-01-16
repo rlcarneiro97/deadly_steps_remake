@@ -12,7 +12,7 @@ func _ready():
 	load_button.flat = true
 	quit_button.flat = true
 	
-	MusicController.play_bg_music_menu()  
+	MusicController.play_bg_music_menu()
 
 # efeitos de botao
 func _on_play_button_mouse_entered():
@@ -36,7 +36,13 @@ func _on_quit_button_mouse_exited():
 # fim
 
 func _on_play_button_pressed():
+	OptionsController.is_in_checkpoint = false
 	get_tree().change_scene_to_packed(control_scene)
+
+func _on_load_button_pressed():
+	MusicController.stop_bg_music_menu()
+	MusicController.play_bg_music_mission()
+	OptionsController.load_game()
 
 func _on_quit_button_pressed():
 	OptionsController.exit_game()

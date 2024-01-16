@@ -37,6 +37,7 @@ scale = Vector2(0.880001, 0.887654)
 [connection signal="pressed" from="PlayButton" to="." method="_on_play_button_pressed"]
 [connection signal="mouse_entered" from="LoadButton" to="." method="_on_load_button_mouse_entered"]
 [connection signal="mouse_exited" from="LoadButton" to="." method="_on_load_button_mouse_exited"]
+[connection signal="pressed" from="LoadButton" to="." method="_on_load_button_pressed"]
 [connection signal="mouse_entered" from="QuitButton" to="." method="_on_quit_button_mouse_entered"]
 [connection signal="mouse_exited" from="QuitButton" to="." method="_on_quit_button_mouse_exited"]
 [connection signal="pressed" from="QuitButton" to="." method="_on_quit_button_pressed"]

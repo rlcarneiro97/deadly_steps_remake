@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cumuakj8qkyco"
-path="res://.godot/imported/Caminhão.png-9dd341427cc68a72c842f8c1a4bc39ac.ctex"
+uid="uid://dr5julgqsjxxh"
+path="res://.godot/imported/bicho.png-5d49ff75d5c5992c3c88559b3443f908.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/assets provisorios/Caminhão.png"
-dest_files=["res://.godot/imported/Caminhão.png-9dd341427cc68a72c842f8c1a4bc39ac.ctex"]
+source_file="res://assets/characters/bicho.png"
+dest_files=["res://.godot/imported/bicho.png-5d49ff75d5c5992c3c88559b3443f908.ctex"]
 
 [params]
 

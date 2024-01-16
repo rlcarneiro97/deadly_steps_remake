@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://odts4gbub86g"
-path="res://.godot/imported/air_ventilation.png-0bdf45a85df4d3c451ecf0889022b4d7.ctex"
+uid="uid://706kebmfmb41"
+path="res://.godot/imported/escada cima.png-83fc1ef063afff6a88cf1177e3a7af85.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/assets provisorios/air_ventilation.png"
-dest_files=["res://.godot/imported/air_ventilation.png-0bdf45a85df4d3c451ecf0889022b4d7.ctex"]
+source_file="res://assets/cenario/escada cima.png"
+dest_files=["res://.godot/imported/escada cima.png-83fc1ef063afff6a88cf1177e3a7af85.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cfq81jdrj2o8e"
-path="res://.godot/imported/Caixote.png-8d360280ae45491f65a2751e4f633f25.ctex"
+uid="uid://odts4gbub86g"
+path="res://.godot/imported/air_ventilation.png-0330e0e88cd54496df567f82196e8ea4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/assets provisorios/Caixote.png"
-dest_files=["res://.godot/imported/Caixote.png-8d360280ae45491f65a2751e4f633f25.ctex"]
+source_file="res://assets/cenario/air_ventilation.png"
+dest_files=["res://.godot/imported/air_ventilation.png-0330e0e88cd54496df567f82196e8ea4.ctex"]
 
 [params]
 

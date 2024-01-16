@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://r6linll2k8g8" path="res://assets/fx/damage.png" id="3_evbqm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jetv3"]
-size = Vector2(25.7143, 2)
+size = Vector2(54.2857, 4)
 
 [sub_resource type="Animation" id="Animation_geqxh"]
 resource_name = "BulletDamage"
@@ -100,11 +100,11 @@ script = ExtResource("1_uuno7")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 self_modulate = Color(1, 1, 1, 0.498039)
-position = Vector2(3.57628e-07, 0)
-scale = Vector2(0.555556, 0.04)
+scale = Vector2(1.05556, 0.0477778)
 texture = ExtResource("2_rci22")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(9.53674e-07, 0)
 scale = Vector2(1.4, 1)
 shape = SubResource("RectangleShape2D_jetv3")
 

@@ -281,7 +281,7 @@ layer_0/tile_data = PackedInt32Array(1900544, 0, 1, 1966080, 0, 1, 2031616, 0, 1
 [node name="Character" parent="." instance=ExtResource("2_t5oyg")]
 position = Vector2(32, 160)
 
-[node name="Parte_1" parent="." instance=ExtResource("3_k730t")]
+[node name="Parte_3" parent="." instance=ExtResource("3_k730t")]
 position = Vector2(1576, 480)
 
 [node name="LimitArea" parent="." instance=ExtResource("4_mg7bf")]
@@ -295,6 +295,8 @@ position = Vector2(1416, 484)
 position = Vector2(360, 600)
 scale = Vector2(2.5, 1)
 
+[node name="HUD" parent="." instance=ExtResource("9_ookeu")]
+
 [node name="PathEnemy2" parent="." instance=ExtResource("7_mdbk6")]
 position = Vector2(104, 32)
 curve = SubResource("Curve2D_w3i8y")
@@ -306,6 +308,7 @@ position = Vector2(375.078, 81)
 
 [node name="MovementAnim" parent="PathEnemy2" index="1"]
 autoplay = "MovementOpositorCloneType1"
+speed_scale = 0.8
 
 [node name="PathEnemy3" parent="." instance=ExtResource("7_mdbk6")]
 position = Vector2(353, 104)
@@ -318,6 +321,7 @@ position = Vector2(375.078, 81)
 
 [node name="MovementAnim" parent="PathEnemy3" index="1"]
 autoplay = "MovementOpositorCloneType1"
+speed_scale = 0.8
 
 [node name="PathEnemy4" parent="." instance=ExtResource("7_mdbk6")]
 position = Vector2(608, 24)
@@ -330,6 +334,7 @@ position = Vector2(361.038, 80)
 
 [node name="MovementAnim" parent="PathEnemy4" index="1"]
 autoplay = "MovementOpositorCloneType1"
+speed_scale = 0.8
 
 [node name="PathEnemy5" parent="." instance=ExtResource("7_mdbk6")]
 position = Vector2(824, 144)
@@ -342,6 +347,7 @@ position = Vector2(361.038, 80)
 
 [node name="MovementAnim" parent="PathEnemy5" index="1"]
 autoplay = "MovementOpositorCloneType1"
+speed_scale = 0.8
 
 [node name="PathEnemy6" parent="." instance=ExtResource("7_mdbk6")]
 position = Vector2(1136, 8)
@@ -354,8 +360,7 @@ position = Vector2(361.038, 80)
 
 [node name="MovementAnim" parent="PathEnemy6" index="1"]
 autoplay = "MovementOpositorCloneType1"
-
-[node name="HUD" parent="." instance=ExtResource("9_ookeu")]
+speed_scale = 0.8
 
 [node name="Heal" parent="." instance=ExtResource("10_4yygx")]
 position = Vector2(1472, 288)

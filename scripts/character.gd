@@ -19,6 +19,11 @@ var is_in_damage := false
 @onready var walk_anim = $WalkAnim
 @onready var shoot_anim = $ShootAnim
 @onready var damage_anim = $DamageAnim
+@onready var camera2D = $Camera2D
+
+func _ready():
+	_fix_camera_2d()
+	_set_character_position()
 
 func _physics_process(delta):
 	
@@ -57,7 +62,7 @@ func _check_idle_state() -> int:
 		new_state = JUMP
 		
 	return new_state
-	
+
 func _check_run_state() -> int:
 	var new_state = current_state
 
@@ -101,7 +106,7 @@ func _check_shoot_state() -> int:
 		new_state = JUMP
 	
 	return new_state
-	
+
 func _check_run_shoot_state() -> int:
 	var new_state = current_state
 	
@@ -114,7 +119,7 @@ func _check_run_shoot_state() -> int:
 		new_state = SHOOT
 		
 	return new_state
-	
+
 func _check_jump_shoot_state() -> int:
 	var new_state = current_state
 	
@@ -124,7 +129,7 @@ func _check_jump_shoot_state() -> int:
 		new_state = FALL
 	
 	return new_state
-	
+
 func _check_fall_shoot_state() -> int:
 	var new_state = current_state
 	
@@ -134,7 +139,7 @@ func _check_fall_shoot_state() -> int:
 		new_state = FALL
 	
 	return new_state
-	
+
 #-------------------------------------------------------------------------------
 
 #STATES
@@ -151,7 +156,7 @@ func _idle_state(_delta) -> void:
 	_apply_direction()
 	
 	_set_state(_check_idle_state())
-	
+
 func _run_state(_delta) -> void:
 	
 	shoot_anim.stop()
@@ -164,7 +169,7 @@ func _run_state(_delta) -> void:
 	_apply_direction()
 	
 	_set_state(_check_run_state())
-	
+
 func _jump_state(_delta) -> void:
 	
 	walk_anim.stop()
@@ -219,7 +224,7 @@ func _run_shoot_state(_delta) -> void:
 	_apply_direction()
 	
 	_set_state(_check_run_shoot_state())
-	
+
 func _jump_shoot_state(_delta) -> void:
 	
 	walk_anim.stop()
@@ -255,10 +260,10 @@ func _fall_shoot_state(_delta) -> void:
 
 func _apply_gravity(_delta) -> void:
 	velocity.y += gravity * _delta
-	
+
 func _apply_move_and_slide() -> void:
 	move_and_slide()
-	
+
 func _apply_movement() -> void:
 
 	var direction = Input.get_axis("left", "right")
@@ -291,6 +296,15 @@ func _set_state(new_state) -> void:
 
 #OTHERS
 
+func _set_character_position() -> void:
+	if OptionsController.is_in_checkpoint:
+		if not get_parent().get_node("save") == null:
+			self.transform = get_parent().get_node("save").transform
+	pass
+
+func _fix_camera_2d() -> void:
+	camera2D.limit_right = get_parent().get_node("ColorRect").size.x
+
 func verify_die_character() -> void:
 	
 	if OptionsController.life_character <= 0:
@@ -318,6 +332,11 @@ func apply_bullet_damage(bullet_damage):
 	verify_die_character()
 
 func _on_hitbox_area_entered(area):
+	if area.name == "lever":
+		area.set_status_lever(true)
+	if area.is_in_group("pickable_weapon"):
+		weapon.set_type_weapon(area.get_type_weapon())
+		area.destroy()
 	if area.is_in_group("continuos_damage"):
 		self.damage_receive = area.get_enemy_damage()
 		self.is_in_damage = true
@@ -329,5 +348,7 @@ func _on_hitbox_area_entered(area):
 		self.apply_bullet_damage(area.get_bullet_damage())
 
 func _on_hitbox_area_exited(area):
+	if area.name == "lever":
+		area.set_status_lever(false)
 	if area.is_in_group("continuos_damage"):
 		self.is_in_damage = false

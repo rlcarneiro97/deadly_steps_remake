@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://bbhgca7fq08um"]
+
+[ext_resource type="Texture2D" uid="uid://cfq81jdrj2o8e" path="res://assets/cenario/Caixote.png" id="1_topph"]
+
+[node name="caixote" type="Node2D"]
+scale = Vector2(0.7, 0.7)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 2
+texture = ExtResource("1_topph")

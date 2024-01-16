@@ -11,7 +11,6 @@ func skip() -> void:
 		next_scene_validator = false
 		MusicController.play_damage_char_FX()
 		OptionsController.die_character()
-		get_tree().change_scene_to_file("res://scenes/menu.tscn")
 
 func _on_body_entered(body):
 	if body.name == "Character":
