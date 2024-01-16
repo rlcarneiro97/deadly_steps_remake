@@ -1,6 +1,7 @@
-[gd_scene load_steps=17 format=3 uid="uid://bmaopijv66dqf"]
+[gd_scene load_steps=19 format=3 uid="uid://bmaopijv66dqf"]
 
 [ext_resource type="Texture2D" uid="uid://dia41kri5i4p4" path="res://assets/tilemap/Tilemap.png" id="1_4ej10"]
+[ext_resource type="Texture2D" uid="uid://06ah05lt6nyg" path="res://assets/formas geométricas/circulo.png" id="5_2yykw"]
 [ext_resource type="PackedScene" uid="uid://dbigh2spk2ws7" path="res://scenes/character.tscn" id="6_lcgcq"]
 [ext_resource type="PackedScene" uid="uid://d14hfy4j72wds" path="res://scenes/limit_area.tscn" id="7_kr7pg"]
 [ext_resource type="PackedScene" uid="uid://bmm03dfb44cn5" path="res://scenes/next_area.tscn" id="8_ncw8o"]
@@ -11,6 +12,9 @@
 [ext_resource type="PackedScene" uid="uid://dwths7glfdqyo" path="res://scenes/clone_type_1.tscn" id="11_esxys"]
 [ext_resource type="PackedScene" uid="uid://cix2chjt6toiq" path="res://scenes/save.tscn" id="11_k3ak1"]
 [ext_resource type="PackedScene" uid="uid://lwnnixkxnrjb" path="res://scenes/clone_type_2.tscn" id="12_rmdtp"]
+
+[sub_resource type="Gradient" id="Gradient_rbuc1"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_nrrg4"]
 polygon = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
@@ -250,6 +254,35 @@ offset_right = 1872.0
 offset_bottom = 576.0
 color = Color(0.164706, 0.180392, 0.152941, 1)
 
+[node name="caixote" parent="." instance=ExtResource("10_yu4pv")]
+position = Vector2(1608, 313)
+
+[node name="caixote2" parent="caixote" instance=ExtResource("10_yu4pv")]
+position = Vector2(64.2861, -6.10352e-05)
+scale = Vector2(1, 1)
+
+[node name="caixote3" parent="caixote" instance=ExtResource("10_yu4pv")]
+position = Vector2(47.1428, -64.2858)
+scale = Vector2(1, 1)
+
+[node name="SnowEffect" type="CPUParticles2D" parent="."]
+position = Vector2(576, -136)
+scale = Vector2(1, 1)
+amount = 200
+lifetime = 15.0
+preprocess = 10.0
+speed_scale = 0.5
+texture = ExtResource("5_2yykw")
+emission_shape = 3
+emission_rect_extents = Vector2(1000, 1)
+direction = Vector2(50, 50)
+gravity = Vector2(0, 0)
+initial_velocity_min = 100.0
+initial_velocity_max = 200.0
+scale_amount_min = 0.1
+scale_amount_max = 0.2
+color_ramp = SubResource("Gradient_rbuc1")
+
 [node name="cercado" parent="." instance=ExtResource("9_ttqyj")]
 position = Vector2(136, 496)
 
@@ -268,6 +301,9 @@ scale = Vector2(1, 1)
 [node name="cercado5" parent="cercado" instance=ExtResource("9_ttqyj")]
 position = Vector2(1217.78, 0)
 scale = Vector2(1, 1)
+
+[node name="save" parent="." instance=ExtResource("11_k3ak1")]
+position = Vector2(904, 312)
 
 [node name="TileMap" type="TileMap" parent="." groups=["Chão"]]
 tile_set = SubResource("TileSet_xy4td")
@@ -324,20 +360,6 @@ enemy_health = 4.0
 
 [node name="CloneType2_3" parent="." instance=ExtResource("12_rmdtp")]
 position = Vector2(1520, 304)
-
-[node name="caixote" parent="." instance=ExtResource("10_yu4pv")]
-position = Vector2(1608, 313)
-
-[node name="caixote2" parent="caixote" instance=ExtResource("10_yu4pv")]
-position = Vector2(64.2861, -6.10352e-05)
-scale = Vector2(1, 1)
-
-[node name="caixote3" parent="caixote" instance=ExtResource("10_yu4pv")]
-position = Vector2(47.1428, -64.2858)
-scale = Vector2(1, 1)
-
-[node name="save" parent="." instance=ExtResource("11_k3ak1")]
-position = Vector2(904, 312)
 
 [editable path="PathEnemy2"]
 [editable path="PathEnemy3"]

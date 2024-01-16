@@ -328,8 +328,8 @@ position = Vector2(0, 240)
 [node name="escada_baixo" parent="escada_cima2" instance=ExtResource("5_01qwu")]
 position = Vector2(0, 288)
 
-[node name="Character" parent="." instance=ExtResource("6_7giph")]
-position = Vector2(24, 144)
+[node name="save" parent="." instance=ExtResource("15_5ms1f")]
+position = Vector2(432, 248)
 
 [node name="LimitArea" parent="." instance=ExtResource("7_p5xpt")]
 position = Vector2(-21, 112)
@@ -435,8 +435,8 @@ type_porta_baixo = 1
 [node name="Heal" parent="." instance=ExtResource("14_wfbv3")]
 position = Vector2(1072, 544)
 
-[node name="save" parent="." instance=ExtResource("15_5ms1f")]
-position = Vector2(432, 248)
+[node name="Character" parent="." instance=ExtResource("6_7giph")]
+position = Vector2(24, 144)
 
 [editable path="PathEnemy2"]
 [editable path="PathEnemy3"]
