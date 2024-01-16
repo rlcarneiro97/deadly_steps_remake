@@ -5,6 +5,7 @@ extends Area2D
 var bullet_velocity := 100
 var bullet_direction := Vector2()
 var bullet_damage := 1.0
+var type_bullet := 0
 var can_move := true
 
 @onready var bullet_impact = $BulletImpact
@@ -14,6 +15,7 @@ func _ready():
 	bullet_impact.visible = false
 
 func _physics_process(delta):
+	self._change_bullet_type()
 	self.bullet_movement(delta)
 
 func set_direction(direction) -> void:
@@ -24,10 +26,19 @@ func set_velocity(velocity) -> void:
 	
 func set_bullet_damage(damage) -> void:
 	self.bullet_damage = damage
-	
+
+func set_type_bullet(type_weapon) -> void:
+	type_bullet = type_weapon
+
 func get_bullet_damage() -> float:
 	return self.bullet_damage
-	
+
+func _change_bullet_type() -> void:
+	if type_bullet == 2:
+		self.scale = Vector2(.7, .6)
+	else:
+		self.scale = Vector2(.6, .4)
+
 func bullet_movement(delta) -> void:
 	if not can_move:
 		return

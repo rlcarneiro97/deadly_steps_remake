@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://c6dkxkqp3ro13"]
+
+[ext_resource type="Texture2D" uid="uid://cvge4mpo51gi1" path="res://assets/cenario/escada baixo.png" id="1_dcvsg"]
+
+[node name="escada_baixo" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(3, 3)
+texture = ExtResource("1_dcvsg")

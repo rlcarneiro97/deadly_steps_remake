@@ -11,6 +11,14 @@ extends Node2D
 @onready var damage_enemy_FX = $DamageEnemyFX
 @onready var die_enemy_FX = $DieEnemyFX
 @onready var heal_FX = $HealFX
+@onready var lever_FX = $LeverFX
+@onready var change_weapon_FX = $ChangeWeaponFX
+
+var weapon_sounds = [
+	"res://sounds/fx/M4A1 556 Single MP3.mp3",
+	"res://sounds/fx/Famas 762x39 Single MP3.mp3",
+	"res://sounds/fx/AK45 762x54r Single MP3.mp3"
+]
 
 #-------------------------------------------------------------------------------
 	
@@ -32,7 +40,20 @@ func stop_bg_music_mission():
 	
 # SOUND EFFECTS
 	
-func play_shoot_FX():
+func play_shoot_FX(type_weapon):
+	if type_weapon == 0:
+		shoot_FX.stream = load(weapon_sounds[0])
+		shoot_FX.volume_db = 12
+		shoot_FX.pitch_scale = .9
+	elif type_weapon == 1:
+		shoot_FX.stream = load(weapon_sounds[1])
+		shoot_FX.volume_db = 15
+		shoot_FX.pitch_scale = 1
+	elif type_weapon == 2:
+		shoot_FX.stream = load(weapon_sounds[2])
+		shoot_FX.volume_db = 15
+		shoot_FX.pitch_scale = .6
+	
 	self.shoot_FX.play()
 	
 func play_bullet_impact_FX():
@@ -56,6 +77,12 @@ func play_die_enemy_FX():
 	
 func play_heal_FX():
 	self.heal_FX.play()
+	
+func play_lever_FX():
+	self.lever_FX.play()
+	
+func play_change_weapon_FX():
+	self.change_weapon_FX.play()
 
 #-------------------------------------------------------------------------------
 	

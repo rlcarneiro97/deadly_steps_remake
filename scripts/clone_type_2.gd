@@ -14,7 +14,14 @@ extends Area2D
 		
 		if Engine.is_editor_hint():
 			queue_redraw()
+
+@export_enum("M4A2", "Fama", "AK_45") var type_weapon := 0:
+	set(new_value):
+		type_weapon = new_value
 		
+		if Engine.is_editor_hint():
+			queue_redraw()
+
 @export var enemy_health := 5.0
 var is_loading = true
 
@@ -30,6 +37,7 @@ var is_loading = true
 
 func _draw():
 	_change_type_clone()
+	_change_weapon(type_weapon)
 	
 func _process(delta):
 	if Engine.is_editor_hint():
@@ -63,7 +71,10 @@ func _change_type_clone() -> void:
 		right_foot.visible = true
 		arrow.visible = true
 		idle_anim.stop()
-		
+
+func _change_weapon(type) -> void:
+	enemy_weapon.set_type_weapon(type)
+
 func _apply_direction() -> void:
 	if enemy_weapon.orientation():
 		body.flip_h = true
@@ -88,6 +99,7 @@ func destroy_object():
 		destroy_anim.play("DestroyCloneType4")
 	elif type_clone == 2:
 		destroy_anim.play("DestroyCloneType2")
+		get_parent().get_node("porta").set_is_door_opened(true)
 		
 	await destroy_anim.animation_finished
 	MusicController.play_die_enemy_FX()

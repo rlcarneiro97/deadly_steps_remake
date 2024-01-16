@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://c7tdwhf55rpdd"]
+
+[ext_resource type="Texture2D" uid="uid://b6h80s5r43en6" path="res://assets/armas/Fama.png" id="1_mbo1i"]
+[ext_resource type="Script" path="res://scripts/pickabe_weapon.gd" id="1_r3eyp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v88ft"]
+size = Vector2(64, 32)
+
+[node name="pickable_weapon" type="Area2D" groups=["pickable_weapon"]]
+collision_layer = 32
+collision_mask = 2
+script = ExtResource("1_r3eyp")
+
+[node name="SpriteWeapon" type="Sprite2D" parent="."]
+texture = ExtResource("1_mbo1i")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_v88ft")

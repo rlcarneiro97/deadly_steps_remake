@@ -1,10 +1,10 @@
 [gd_scene load_steps=16 format=3 uid="uid://lwnnixkxnrjb"]
 
-[ext_resource type="Texture2D" uid="uid://dr5julgqsjxxh" path="res://assets/assets provisorios/bicho.png" id="1_a2itf"]
+[ext_resource type="Texture2D" uid="uid://dr5julgqsjxxh" path="res://assets/characters/bicho.png" id="1_a2itf"]
 [ext_resource type="Script" path="res://scripts/clone_type_2.gd" id="1_gw26q"]
 [ext_resource type="Texture2D" uid="uid://06ah05lt6nyg" path="res://assets/formas geométricas/circulo.png" id="2_blomk"]
 [ext_resource type="PackedScene" uid="uid://co754qs3udgo" path="res://scenes/enemy_weapon.tscn" id="3_j0tt5"]
-[ext_resource type="Texture2D" uid="uid://us06atcfy1j2" path="res://assets/assets provisorios/seta.png" id="4_ckjwe"]
+[ext_resource type="Texture2D" uid="uid://us06atcfy1j2" path="res://assets/characters/seta.png" id="4_ckjwe"]
 [ext_resource type="Texture2D" uid="uid://dpxav81qxc47h" path="res://assets/fx/explosion.png" id="5_dag1n"]
 [ext_resource type="Gradient" uid="uid://cydj0hwyh8shl" path="res://assets/fx/new_gradient.tres" id="6_flb23"]
 
@@ -355,10 +355,10 @@ libraries = {
 }
 
 [node name="IdleAnim" type="AnimationPlayer" parent="."]
-speed_scale = 1.5
 libraries = {
 "": SubResource("AnimationLibrary_cym35")
 }
+speed_scale = 1.5
 
 [node name="DieEffect" type="CPUParticles2D" parent="."]
 emitting = false

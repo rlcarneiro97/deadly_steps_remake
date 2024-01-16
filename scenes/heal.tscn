@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://bk2kmud8k6bnx"]
 
 [ext_resource type="Script" path="res://scripts/heal.gd" id="1_gkrmq"]
-[ext_resource type="Texture2D" uid="uid://lr40bc8wbhet" path="res://assets/assets provisorios/vida.png" id="1_w06wf"]
+[ext_resource type="Texture2D" uid="uid://lr40bc8wbhet" path="res://assets/vida/vida.png" id="1_w06wf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_odskb"]
 size = Vector2(26, 26)
