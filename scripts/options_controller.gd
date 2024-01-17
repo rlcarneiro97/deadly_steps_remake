@@ -3,7 +3,8 @@ extends Node2D
 var BASE_LIFE_CHARACTER := 30.0
 var life_character := 0.0
 var current_weapon := 0
-var is_in_checkpoint := false
+var scenario_name := "Parte_3"
+var release_checkpoint := false
 var menu_scene = preload("res://scenes/menu.tscn")
 var data_file_path = "user://savegame.save"
 
@@ -38,17 +39,16 @@ func die_character() -> void:
 	#A linha abaixo reseta a vida do char para reiniciar o jogo
 	self.life_character = self.BASE_LIFE_CHARACTER
 
-func save(cenario, checkpoint, arma) -> Dictionary:
+func save(scenario, weapon) -> Dictionary:
 	var dic_save = {
-		"scenario": cenario,
-		"is_checkpoint": checkpoint,
-		"weapon": arma
+		"scenario_name": scenario,
+		"weapon": weapon
 	}
 	return dic_save
 
-func save_game(scenario, checkpoint, weapon_number) -> bool:
+func save_game(scenario, weapon_number) -> bool:
 	var savegame = FileAccess.open(data_file_path, FileAccess.WRITE)
-	savegame.store_string(JSON.stringify(save(scenario, checkpoint, weapon_number)))
+	savegame.store_string(JSON.stringify(save(scenario, weapon_number)))
 	savegame.close()
 	
 	return true
@@ -59,9 +59,12 @@ func load_game() -> bool:
 		print(JSON.parse_string(loadgame.get_as_text()))
 		var data = JSON.parse_string(loadgame.get_as_text())
 		loadgame.close()
-		get_tree().change_scene_to_file("res://scenes/"+data["scenario"].to_lower()+".tscn")
-		is_in_checkpoint = bool(data["is_checkpoint"])
-		current_weapon = int(data["weapon"])
 		
+		scenario_name = data["scenario_name"]
+		current_weapon = int(data["weapon"])
+		release_checkpoint = true
+		
+		get_tree().change_scene_to_file("res://scenes/"+scenario_name.to_lower()+".tscn")
 		return true
+		
 	return false

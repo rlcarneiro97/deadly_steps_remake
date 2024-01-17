@@ -36,8 +36,8 @@ func _on_quit_button_mouse_exited():
 # fim
 
 func _on_play_button_pressed():
-	OptionsController.is_in_checkpoint = false
 	get_tree().change_scene_to_packed(control_scene)
+	OptionsController.release_checkpoint = false
 
 func _on_load_button_pressed():
 	MusicController.stop_bg_music_menu()
