@@ -50,7 +50,8 @@ func _process(_delta):
 		return
 
 func _physics_process(_delta):
-	look_at(get_parent().get_parent().get_node("Character").get_global_position())
+	if not Engine.is_editor_hint():
+		look_at(get_parent().get_parent().get_node("Character").get_global_position())
 
 func orientation() -> bool:
 
