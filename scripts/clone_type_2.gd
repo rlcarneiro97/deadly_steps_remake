@@ -38,7 +38,7 @@ var is_loading = true
 func _draw():
 	_change_type_clone()
 	_change_weapon(type_weapon)
-	
+
 func _process(delta):
 	if Engine.is_editor_hint():
 		return

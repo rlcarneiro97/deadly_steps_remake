@@ -22,10 +22,14 @@ func _verify_save_game() -> void:
 		get_tree().paused = true
 
 func _on_save_button_pressed():
-	get_tree().paused = false
 	$CanvasLayer.visible = false
 	OptionsController.save_game(get_parent().name, character.get_node("Weapon").get_type_weapon())
+	$CanvasLayer2.visible = true
 
 func _on_cancel_button_pressed():
 	get_tree().paused = false
 	$CanvasLayer.visible = false
+
+func _on_confirm_button_pressed():
+	get_tree().paused = false
+	$CanvasLayer2.visible = false

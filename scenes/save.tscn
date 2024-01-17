@@ -66,6 +66,46 @@ offset_bottom = 220.0
 theme_override_font_sizes/font_size = 25
 text = "Não"
 
+[node name="CanvasLayer2" type="CanvasLayer" parent="."]
+process_mode = 3
+visible = false
+
+[node name="Control" type="Control" parent="CanvasLayer2"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 424.0
+offset_top = 256.0
+offset_right = 424.0
+offset_bottom = 256.0
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer2/Control"]
+layout_mode = 0
+offset_right = 490.0
+offset_bottom = 250.0
+color = Color(0.192157, 0.192157, 0.192157, 1)
+
+[node name="Label" type="Label" parent="CanvasLayer2/Control"]
+layout_mode = 2
+offset_left = -4.57764e-05
+offset_top = 40.0
+offset_right = 490.0
+offset_bottom = 75.0
+theme_override_font_sizes/font_size = 25
+text = "Jogo salvo com Sucesso!"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="ConfirmButton" type="Button" parent="CanvasLayer2/Control"]
+layout_mode = 0
+offset_left = 152.0
+offset_top = 136.0
+offset_right = 333.0
+offset_bottom = 216.0
+theme_override_font_sizes/font_size = 25
+text = "OK"
+
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="pressed" from="CanvasLayer/Control/SaveButton" to="." method="_on_save_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/Control/CancelButton" to="." method="_on_cancel_button_pressed"]
+[connection signal="pressed" from="CanvasLayer2/Control/ConfirmButton" to="." method="_on_confirm_button_pressed"]
