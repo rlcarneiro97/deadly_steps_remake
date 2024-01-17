@@ -297,9 +297,9 @@ func _set_state(new_state) -> void:
 #OTHERS
 
 func _set_character_position() -> void:
-	if OptionsController.is_in_checkpoint:
-		if not get_parent().get_node("save") == null:
-			self.transform.origin = get_parent().get_node("save").transform.origin
+	if get_parent().name == OptionsController.scenario_name and OptionsController.release_checkpoint:
+		self.transform.origin = get_parent().get_node("save").transform.origin
+		OptionsController.release_checkpoint = false
 
 func _fix_camera_2d() -> void:
 	camera2D.limit_right = get_parent().get_node("ColorRect").size.x
