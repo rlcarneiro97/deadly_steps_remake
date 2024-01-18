@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://bisg4es7b607x"]
+
+[ext_resource type="Script" path="res://scripts/parte_11.gd" id="1_lterc"]
+[ext_resource type="Texture2D" uid="uid://11qs0mlrkcre" path="res://assets/creditos/Captura de Tela (46).png" id="2_fpy8x"]
+
+[node name="Parte_11" type="Node2D"]
+script = ExtResource("1_lterc")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(684, 387.5)
+scale = Vector2(1.38799, 1.11589)
+texture = ExtResource("2_fpy8x")
