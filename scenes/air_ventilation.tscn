@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://c4nnjnm1k3jbe"]
+
+[ext_resource type="Texture2D" uid="uid://odts4gbub86g" path="res://assets/assets provisorios/air_ventilation.png" id="1_1oqcm"]
+
+[node name="AirVentilation" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -2.27374e-13)
+scale = Vector2(0.8, 0.794326)
+texture = ExtResource("1_1oqcm")

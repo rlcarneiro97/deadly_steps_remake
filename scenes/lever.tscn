@@ -1,0 +1,67 @@
+[gd_scene load_steps=8 format=3 uid="uid://dfd4f4wxcggt8"]
+
+[ext_resource type="Texture2D" uid="uid://by48x75qh55oy" path="res://assets/interativos/alavanca_1.png" id="1_0ul7f"]
+[ext_resource type="Script" path="res://scripts/lever.gd" id="1_8l23l"]
+[ext_resource type="Texture2D" uid="uid://o36yikwn8qc5" path="res://assets/interativos/Alavanca_2.png" id="2_2sodp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xa15l"]
+size = Vector2(48, 64)
+
+[sub_resource type="Animation" id="Animation_kxbua"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("alavanca:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -21)]
+}
+
+[sub_resource type="Animation" id="Animation_u3bdg"]
+resource_name = "acao alavanca"
+length = 0.8
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("alavanca:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, -21), Vector2(0, 21)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_vjnqh"]
+_data = {
+"RESET": SubResource("Animation_kxbua"),
+"acao alavanca": SubResource("Animation_u3bdg")
+}
+
+[node name="lever" type="Area2D"]
+collision_layer = 8
+collision_mask = 2
+script = ExtResource("1_8l23l")
+
+[node name="base_alavanca" type="Sprite2D" parent="."]
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("1_0ul7f")
+
+[node name="alavanca" type="Sprite2D" parent="."]
+position = Vector2(0, -21)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("2_2sodp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_xa15l")
+
+[node name="AcaoAlavanca" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_vjnqh")
+}

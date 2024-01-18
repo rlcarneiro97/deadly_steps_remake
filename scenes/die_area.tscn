@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://cki3plhh3j6mk"]
+
+[ext_resource type="Script" path="res://scripts/die_area.gd" id="1_l7q3d"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_oh1e1"]
+size = Vector2(128, 48)
+
+[node name="DieArea" type="Area2D"]
+collision_mask = 2
+script = ExtResource("1_l7q3d")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_oh1e1")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

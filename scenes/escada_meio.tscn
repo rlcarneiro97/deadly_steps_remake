@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://dqxp6r6o73obh"]
+
+[ext_resource type="Texture2D" uid="uid://bhlsd2bi6i7gk" path="res://assets/cenario/escada meio.png" id="1_lursl"]
+
+[node name="escada_meio" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(3, 3)
+texture = ExtResource("1_lursl")

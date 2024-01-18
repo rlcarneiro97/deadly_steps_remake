@@ -1,66 +1,151 @@
 extends Node2D
 
-var vel = 800
-var dir = Vector2()
-var interval = .1
-var last_shoot = 0
-var precision = 0.05
+@export_enum("M4A2", "Fama", "AK_45") var type_weapon := 0:
+	set(new_value):
+		type_weapon = new_value
+		
+		if type_weapon == 0:
+			shooting_interval = .14
+			bullet_damage = 1.0
+		elif type_weapon == 1:
+			shooting_interval = .09
+			bullet_damage = .5
+		elif type_weapon == 2:
+			shooting_interval = .12
+			bullet_damage = 2.0
 
-@onready var weaponSprite = $WeaponSprite
+#weapon
+var direction_vector := Vector2()
+var bullet_velocity := 800
+var bullet_damage := 1.0
+var shooting_interval := .14
+var last_shoot := 0.0
+var shooting_precision := 0.02
+var bullet_light_M4A2 := Vector2(1.5, 3)*1.0
+var bullet_light_Fama := Vector2(1.5, 3)*1.5
+var bullet_light_AK_45 := Vector2(1.5, 3)*2.0
+
+@onready var weapon_sprite = $WeaponSprite
 @onready var marker = $Marker1
 @onready var ejector = $Ejector1
-#@onready var ejector2 = $Ejector2
+@onready var shoot_sprite = $Shoot1
+
 var pre_bullet = preload("res://scenes/bullet.tscn")
 var pre_sheel_casing = preload("res://scenes/sheel_casing.tscn")
+var weapon_skins = [
+	"res://assets/armas/M4A2.png",
+	"res://assets/armas/Fama.png",
+	"res://assets/armas/AK_45.png"
+]
+
+func _ready():
+	type_weapon = OptionsController.current_weapon
 
 func _physics_process(_delta):
+	_change_type_weapon()
 	look_at(get_global_mouse_position())
 	
 func orientation() -> bool:
 
 	if cos(rotation) < -0.01:
-		weaponSprite.flip_v = true
+		weapon_sprite.flip_v = true
 		marker = $Marker2
 		ejector = $Ejector2
+		shoot_sprite = $Shoot2
+		shoot_sprite.self_modulate = Color("#ffffff")
+		shoot_sprite.position = Vector2(69.333, 11)
+		shoot_sprite.scale = bullet_light_M4A2
+		#fix fama e ak45
+		if type_weapon == 1:
+			marker.position = Vector2(45, 4)
+			shoot_sprite.position = Vector2(80, 1)
+			shoot_sprite.self_modulate = Color("#ffff00")
+			shoot_sprite.scale = bullet_light_Fama
+		elif type_weapon == 2:
+			marker.position = Vector2(46, 8)
+			shoot_sprite.position = Vector2(95, 5)
+			shoot_sprite.scale = bullet_light_AK_45
+			shoot_sprite.self_modulate = Color("#ff5100")
+		
 		return true
 	else:
-		weaponSprite.flip_v = false
+		weapon_sprite.flip_v = false
 		marker = $Marker1
 		ejector = $Ejector1
+		shoot_sprite = $Shoot1
+		shoot_sprite.self_modulate = Color("#ffffff")
+		shoot_sprite.position = Vector2(68, -8)
+		shoot_sprite.scale = bullet_light_M4A2
+		#fix fama e ak45
+		if type_weapon == 1:
+			marker.position = Vector2(45, -2)
+			shoot_sprite.position = Vector2(80, -4)
+			shoot_sprite.self_modulate = Color("#ffff00")
+			shoot_sprite.scale = bullet_light_Fama
+		elif type_weapon == 2:
+			marker.position = Vector2(46, -7)
+			shoot_sprite.position = Vector2(95, -9) 
+			shoot_sprite.scale = bullet_light_AK_45
+			shoot_sprite.self_modulate = Color("#ff5100")
+		
 		return false
 
 func shoot(delta) -> void:
 	
-	var vector = Vector2()
+	self.invisible_shoot_sprite()
 	
 	if last_shoot <= 0:
-
-		var sheelCasingInstance = pre_sheel_casing.instantiate(PackedScene.GEN_EDIT_STATE_DISABLED)
-		sheelCasingInstance.global_position = ejector.global_position
-		sheelCasingInstance.rotation_degrees = rotation_degrees
+		var sheel_casing_instance = pre_sheel_casing.instantiate(PackedScene.GEN_EDIT_STATE_DISABLED)
+		sheel_casing_instance.global_position = ejector.global_position
+		sheel_casing_instance.rotation_degrees = rotation_degrees
 		
 		randomize()
-		vector = Vector2(0, -1)
-		vector.x += randf_range(-.5, .5)
+		direction_vector = Vector2(0, -1)
+		direction_vector.x += randf_range(-.5, .5)
 		
-		sheelCasingInstance.setDirection(vector)
-		get_parent().get_parent().add_child(sheelCasingInstance)
+		sheel_casing_instance.set_direction(direction_vector)
+		get_parent().get_parent().add_child(sheel_casing_instance)
 		
 #		---------------------------------------------------------------------------------------
 
-		var bulletInstance = pre_bullet.instantiate(PackedScene.GEN_EDIT_STATE_DISABLED)
-		bulletInstance.global_position = marker.global_position
-		bulletInstance.rotation_degrees = rotation_degrees
+		var bullet_instance = pre_bullet.instantiate(PackedScene.GEN_EDIT_STATE_DISABLED)
+		self.shoot_sprite.visible = true
+		MusicController.play_shoot_FX(type_weapon)
+		bullet_instance.global_position = marker.global_position
+		bullet_instance.rotation_degrees = rotation_degrees
 		
 		randomize()
-		vector.x = cos(rotation)
-		vector.y = sin(rotation)
-		vector.x += randf_range(-precision, precision)
-		vector.y += randf_range(-precision, precision)
+		direction_vector.x = cos(rotation)
+		direction_vector.y = sin(rotation)
+		direction_vector.x += randf_range(-shooting_precision, shooting_precision)
+		direction_vector.y += randf_range(-shooting_precision, shooting_precision)
 		
-		bulletInstance.setDirection(vector)
-		get_parent().get_parent().add_child(bulletInstance)
-		last_shoot = interval
-	
+		bullet_instance.set_direction(self.direction_vector)
+		bullet_instance.set_velocity(self.bullet_velocity)
+		bullet_instance.set_bullet_damage(self.bullet_damage)
+		bullet_instance.set_type_bullet(self.type_weapon)
+		get_parent().get_parent().add_child(bullet_instance)
+		last_shoot = shooting_interval
+		
 	if last_shoot > 0:
 		last_shoot -= delta
+
+func get_type_weapon() -> int:
+	return type_weapon
+
+func set_type_weapon(pickable_weapon) -> void:
+	OptionsController.current_weapon = pickable_weapon
+	type_weapon = pickable_weapon
+
+func _change_type_weapon() -> void:
+	
+	if type_weapon == 0:
+		weapon_sprite.texture = load(weapon_skins[0])
+	elif type_weapon == 1:
+		weapon_sprite.texture = load(weapon_skins[1])
+	elif type_weapon == 2:
+		weapon_sprite.texture = load(weapon_skins[2])
+
+func invisible_shoot_sprite() -> void:
+	$Shoot1.visible = false
+	$Shoot2.visible = false

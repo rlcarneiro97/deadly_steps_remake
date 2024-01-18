@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://chyrgcwakivjj"]
+
+[ext_resource type="Texture2D" uid="uid://706kebmfmb41" path="res://assets/cenario/escada cima.png" id="1_l37k5"]
+
+[node name="escada_cima" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(3, 3)
+texture = ExtResource("1_l37k5")

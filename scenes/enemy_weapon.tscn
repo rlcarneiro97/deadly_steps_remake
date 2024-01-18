@@ -1,0 +1,40 @@
+[gd_scene load_steps=4 format=3 uid="uid://co754qs3udgo"]
+
+[ext_resource type="Script" path="res://scripts/enemy_weapon.gd" id="1_70kub"]
+[ext_resource type="Texture2D" uid="uid://dt5nacx16r6lv" path="res://assets/armas/M4A2.png" id="2_n4jwm"]
+[ext_resource type="Texture2D" uid="uid://d0lhb633i4tgj" path="res://assets/fx/shoot.png" id="3_0v63h"]
+
+[node name="EnemyWeapon" type="Node2D"]
+scale = Vector2(1.5, 1)
+script = ExtResource("1_70kub")
+
+[node name="WeaponSprite" type="Sprite2D" parent="."]
+z_index = 1
+position = Vector2(12, 1.35783)
+texture = ExtResource("2_n4jwm")
+
+[node name="Marker1" type="Marker2D" parent="."]
+position = Vector2(50, -7)
+
+[node name="Marker2" type="Marker2D" parent="."]
+position = Vector2(51, 11.358)
+
+[node name="Ejector1" type="Marker2D" parent="."]
+position = Vector2(1.33333, -21)
+
+[node name="Ejector2" type="Marker2D" parent="."]
+position = Vector2(1.33333, 25)
+
+[node name="Shoot1" type="Sprite2D" parent="."]
+visible = false
+self_modulate = Color(1, 1, 0.470588, 1)
+position = Vector2(68, -8)
+scale = Vector2(1.5, 3)
+texture = ExtResource("3_0v63h")
+
+[node name="Shoot2" type="Sprite2D" parent="."]
+visible = false
+self_modulate = Color(1, 1, 0.470588, 1)
+position = Vector2(69.3333, 11)
+scale = Vector2(1.5, 3)
+texture = ExtResource("3_0v63h")

@@ -1,0 +1,132 @@
+[gd_scene load_steps=8 format=3 uid="uid://bu0ryrkvci2yp"]
+
+[ext_resource type="Script" path="res://scripts/enemy_bullet.gd" id="1_1xu32"]
+[ext_resource type="Texture2D" uid="uid://csdqrkvhxr0do" path="res://assets/formas geométricas/cubo.png" id="2_dakfp"]
+[ext_resource type="Texture2D" uid="uid://r6linll2k8g8" path="res://assets/fx/damage.png" id="3_2dyd6"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jetv3"]
+size = Vector2(54.2857, 4)
+
+[sub_resource type="Animation" id="Animation_geqxh"]
+resource_name = "BulletDamage"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BulletImpact:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0.5, 0.5), Vector2(3, 3)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("BulletImpact:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+
+[sub_resource type="Animation" id="Animation_lyyu8"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BulletImpact:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("BulletImpact:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1.5, 1.5)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_lf5gf"]
+_data = {
+"BulletDamage": SubResource("Animation_geqxh"),
+"RESET": SubResource("Animation_lyyu8")
+}
+
+[node name="EnemyBullet" type="Area2D" groups=["enemy_bullet"]]
+scale = Vector2(0.5, 0.5)
+collision_layer = 8192
+collision_mask = 3395
+script = ExtResource("1_1xu32")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+self_modulate = Color(1, 1, 1, 0.498039)
+position = Vector2(3.57628e-07, 0)
+scale = Vector2(1.056, 0.048)
+texture = ExtResource("2_dakfp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(1.4, 1)
+shape = SubResource("RectangleShape2D_jetv3")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+scale = Vector2(1.02, 0.1)
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+amount = 25
+lifetime = 0.5
+direction = Vector2(0, 1)
+gravity = Vector2(0, 0)
+color = Color(1, 1, 1, 0.392157)
+
+[node name="BulletImpact" type="Sprite2D" parent="."]
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("3_2dyd6")
+
+[node name="BulletDamageAnim" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_lf5gf")
+}
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

@@ -1,0 +1,79 @@
+[gd_scene load_steps=6 format=3 uid="uid://cos6ydlxsujk0"]
+
+[sub_resource type="Curve2D" id="Curve2D_xfwe0"]
+_data = {
+"points": PackedVector2Array(-53.3575, 74.2204, 53.3575, -74.2204, 128, 64, -50.7812, -57.9084, 50.7812, 57.9084, 384, 64, 32.0724, -34.745, -32.0724, 34.745, 384, 256, 59.5682, 38.1838, -59.5682, -38.1838, 128, 256, 0, 0, 0, 0, 128, 64, 0, 0, 0, 0, 128, 64, 0, 0, 0, 0, 128, 64, 0, 0, 0, 0, 128, 64, 0, 0, 0, 0, 312.9, 24)
+}
+point_count = 9
+
+[sub_resource type="Animation" id="Animation_u8bev"]
+resource_name = "MovementCloneType1"
+length = 10.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PathFollow2D:progress_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 10),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+
+[sub_resource type="Animation" id="Animation_7uvu3"]
+resource_name = "MovementOpositorCloneType1"
+length = 10.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PathFollow2D:progress_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 10),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [1.0, 0.0]
+}
+
+[sub_resource type="Animation" id="Animation_4wb68"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PathFollow2D:progress_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_uwnb8"]
+_data = {
+"MovementCloneType1": SubResource("Animation_u8bev"),
+"MovementOpositorCloneType1": SubResource("Animation_7uvu3"),
+"RESET": SubResource("Animation_4wb68")
+}
+
+[node name="PathEnemy" type="Path2D"]
+position = Vector2(1.19322, 0)
+scale = Vector2(0.997125, 1)
+curve = SubResource("Curve2D_xfwe0")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="."]
+position = Vector2(128, 64)
+rotates = false
+
+[node name="MovementAnim" type="AnimationPlayer" parent="."]
+autoplay = "MovementCloneType1"
+speed_scale = 0.7
+libraries = {
+"": SubResource("AnimationLibrary_uwnb8")
+}
