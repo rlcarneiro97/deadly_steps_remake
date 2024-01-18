@@ -269,14 +269,14 @@ layer_0/tile_data = PackedInt32Array(2293760, 0, 2, 65536, 0, 1, 131072, 0, 1, 1
 [node name="AirVentilation" parent="." instance=ExtResource("3_52odd")]
 position = Vector2(1240, 104)
 
-[node name="AirVentilation2" parent="." instance=ExtResource("3_52odd")]
-position = Vector2(1352, 104)
+[node name="AirVentilation4" parent="AirVentilation" instance=ExtResource("3_52odd")]
+position = Vector2(336, 0)
 
-[node name="AirVentilation3" parent="." instance=ExtResource("3_52odd")]
-position = Vector2(1464, 104)
+[node name="AirVentilation2" parent="AirVentilation" instance=ExtResource("3_52odd")]
+position = Vector2(112, 0)
 
-[node name="AirVentilation4" parent="." instance=ExtResource("3_52odd")]
-position = Vector2(1576, 104)
+[node name="AirVentilation3" parent="AirVentilation" instance=ExtResource("3_52odd")]
+position = Vector2(224, 0)
 
 [node name="escada_cima" parent="." instance=ExtResource("13_51735")]
 position = Vector2(864, 120)

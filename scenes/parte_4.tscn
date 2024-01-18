@@ -271,8 +271,8 @@ layer_0/tile_data = PackedInt32Array(2293760, 65536, 2, 65536, 65536, 1, 131072,
 [node name="AirVentilation" parent="." instance=ExtResource("3_qiga2")]
 position = Vector2(23, 280)
 
-[node name="AirVentilation2" parent="." instance=ExtResource("3_qiga2")]
-position = Vector2(135, 280)
+[node name="AirVentilation2" parent="AirVentilation" instance=ExtResource("3_qiga2")]
+position = Vector2(112, 0)
 
 [node name="LimitArea" parent="." instance=ExtResource("4_n3sar")]
 position = Vector2(-21, 280)

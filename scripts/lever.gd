@@ -11,6 +11,9 @@ func _process(_delta):
 func set_status_lever(action_lever) -> int:
 	self.status_lever = action_lever
 	return status_lever
+	
+func get_disable_lever() -> bool:
+	return self.disable_lever
 
 func _verify_status_lever() -> void:
 	if self.status_lever and not disable_lever and Input.is_action_pressed("action"):

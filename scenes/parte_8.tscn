@@ -298,8 +298,9 @@ position = Vector2(1536, 256)
 [node name="caixote" parent="." instance=ExtResource("6_en2lt")]
 position = Vector2(73, 474)
 
-[node name="caixote2" parent="." instance=ExtResource("6_en2lt")]
-position = Vector2(118, 474)
+[node name="caixote2" parent="caixote" instance=ExtResource("6_en2lt")]
+position = Vector2(64.2857, 0)
+scale = Vector2(1, 1)
 
 [node name="caixote3" parent="." instance=ExtResource("6_en2lt")]
 position = Vector2(472, 506)
@@ -310,8 +311,9 @@ position = Vector2(304, 202)
 [node name="caixote5" parent="." instance=ExtResource("6_en2lt")]
 position = Vector2(456, 202)
 
-[node name="caixote6" parent="." instance=ExtResource("6_en2lt")]
-position = Vector2(501, 202)
+[node name="caixote6" parent="caixote5" instance=ExtResource("6_en2lt")]
+position = Vector2(64.2857, 0)
+scale = Vector2(1, 1)
 
 [node name="caixote7" parent="." instance=ExtResource("6_en2lt")]
 position = Vector2(472, 346)
@@ -319,8 +321,9 @@ position = Vector2(472, 346)
 [node name="caixote8" parent="." instance=ExtResource("6_en2lt")]
 position = Vector2(1008, 346)
 
-[node name="caixote9" parent="." instance=ExtResource("6_en2lt")]
-position = Vector2(1053, 346)
+[node name="caixote9" parent="caixote8" instance=ExtResource("6_en2lt")]
+position = Vector2(64.2858, 0)
+scale = Vector2(1, 1)
 
 [node name="lever" parent="." instance=ExtResource("12_bf171")]
 position = Vector2(1081, 110)

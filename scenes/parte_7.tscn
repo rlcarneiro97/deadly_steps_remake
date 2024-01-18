@@ -269,7 +269,7 @@ scale = Vector2(1, 1)
 position = Vector2(576, -136)
 amount = 200
 lifetime = 15.0
-preprocess = 10.0
+preprocess = 20.0
 speed_scale = 0.5
 texture = ExtResource("5_2yykw")
 emission_shape = 3
@@ -313,7 +313,7 @@ layer_0/tile_data = PackedInt32Array(2293760, 65536, 0, 65536, 0, 1, 131072, 0, 
 position = Vector2(-21, 496)
 scale = Vector2(1, 1.2)
 
-[node name="Parte_1" parent="." instance=ExtResource("8_ncw8o")]
+[node name="Parte_8" parent="." instance=ExtResource("8_ncw8o")]
 position = Vector2(1888, 280)
 
 [node name="HUD" parent="." instance=ExtResource("9_27gyo")]
