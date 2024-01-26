@@ -1,5 +1,6 @@
 # deadly_steps_remake
-Implementação de um fanart remake de um mini game antigo que eu costumava jogar.
+Implementação de um fanart quase fiel a um mini game antigo que eu costumava jogar.
 
 ## Sobre as mudanças
-O jogo será uma versão melhorada e ampliada, mas mantendo o gameplay e historia originais.
+No jogo, podem conter algumas mudancas em relação ao original, principalmente em relação a arte do mesmo, porém busquei 
+manter a mecânica do gameplay e sua historia original.

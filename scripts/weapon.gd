@@ -1,3 +1,4 @@
+@tool
 extends Node2D
 
 @export_enum("M4A2", "Fama", "AK_45") var type_weapon := 0:
@@ -13,6 +14,9 @@ extends Node2D
 		elif type_weapon == 2:
 			shooting_interval = .12
 			bullet_damage = 2.0
+		
+		if Engine.is_editor_hint():
+			queue_redraw()
 
 #weapon
 var direction_vector := Vector2()
@@ -38,12 +42,20 @@ var weapon_skins = [
 	"res://assets/armas/AK_45.png"
 ]
 
+func _draw():
+	_change_type_weapon(type_weapon)
+
 func _ready():
-	type_weapon = OptionsController.current_weapon
+	if not Engine.is_editor_hint():
+		self.type_weapon = OptionsController.current_weapon
+
+func _process(_delta):
+	if Engine.is_editor_hint():
+		return
 
 func _physics_process(_delta):
-	_change_type_weapon()
-	look_at(get_global_mouse_position())
+	if not Engine.is_editor_hint():
+		look_at(get_global_mouse_position())
 	
 func orientation() -> bool:
 
@@ -135,15 +147,17 @@ func get_type_weapon() -> int:
 
 func set_type_weapon(pickable_weapon) -> void:
 	OptionsController.current_weapon = pickable_weapon
-	type_weapon = pickable_weapon
+	_change_type_weapon(pickable_weapon)
 
-func _change_type_weapon() -> void:
-	
-	if type_weapon == 0:
+func _change_type_weapon(weapon_skin) -> void:
+	if weapon_skin == 0:
+		self.type_weapon = weapon_skin
 		weapon_sprite.texture = load(weapon_skins[0])
-	elif type_weapon == 1:
+	elif weapon_skin == 1:
+		self.type_weapon = weapon_skin
 		weapon_sprite.texture = load(weapon_skins[1])
-	elif type_weapon == 2:
+	elif weapon_skin == 2:
+		self.type_weapon = weapon_skin
 		weapon_sprite.texture = load(weapon_skins[2])
 
 func invisible_shoot_sprite() -> void:

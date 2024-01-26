@@ -245,19 +245,19 @@ point_count = 6
 
 [sub_resource type="Curve2D" id="Curve2D_mm0dm"]
 _data = {
-"points": PackedVector2Array(-9.27654, -59.7037, 9.27654, 59.7037, 375.078, 81, 13.5211, -23.8369, -13.5211, 23.8369, 361.038, 162, 37.5637, 40.1772, -37.5637, -40.1772, 96.2768, 128, -73.734, -76.6044, 73.734, 76.6044, 128.369, 80, 0, 0, 0, 0, 248.715, 136, 74.25, 136.187, -74.25, -136.187, 272.784, 24, 0, 0, 0, 0, 312.9, -8, -24.8201, -32.5269, 24.8201, 32.5269, 344.992, 24, 0, 0, 0, 0, 375.078, 81)
+"points": PackedVector2Array(-9.27654, -59.7037, 9.27654, 59.7037, 375.078, 81, 31.5323, -23.8369, -31.5323, 23.8369, 304.877, 183, 37.5637, 40.1772, -37.5637, -40.1772, 111.32, 155, -73.734, -76.6044, 73.734, 76.6044, 128.369, 80, 0, 0, 0, 0, 248.715, 136, 74.25, 136.187, -74.25, -136.187, 261.753, -2, 0, 0, 0, 0, 301.868, -31, -18.0659, -33.6494, 18.0659, 33.6494, 344.992, 24, 0, 0, 0, 0, 375.078, 81)
 }
 point_count = 9
 
 [sub_resource type="Curve2D" id="Curve2D_btd3p"]
 _data = {
-"points": PackedVector2Array(4.26239, -59.2037, -4.26239, 59.2037, 336.969, 56, 0.530098, 117.433, -0.530098, -117.433, 112.323, 96, -15.8867, -38.7958, 15.8867, 38.7958, 184.531, 64, 24.2434, 94.2923, -24.2434, -94.2923, 232.669, 40, 0, 0, 0, 0, 296.853, 16, -24.8201, -32.5269, 24.8201, 32.5269, 336.969, 56)
+"points": PackedVector2Array(4.26239, -59.2037, -4.26239, 59.2037, 384.104, 68, 0, 0, 0, 0, 312.9, 156, 0.530098, 117.433, -0.530098, -117.433, 112.323, 96, 0, 0, 0, 0, 131.378, 3, -27.6932, -67.3863, 27.6932, 67.3863, 185.533, 64, 24.2434, 94.2923, -24.2434, -94.2923, 272.784, 35, 0, 0, 0, 0, 336.969, 5, -24.8201, -32.5269, 24.8201, 32.5269, 385.107, 68)
 }
-point_count = 6
+point_count = 8
 
 [sub_resource type="Curve2D" id="Curve2D_xrjr3"]
 _data = {
-"points": PackedVector2Array(4.26239, -59.2037, -4.26239, 59.2037, 361.038, 80, 6.50094, -9.3369, -6.50094, 9.3369, 328.946, 144, 44.3103, 100.722, -44.3103, -100.722, 104.3, 112, -24.8214, -68.1955, 24.8214, 68.1955, 152.438, 24, 0, 0, 0, 0, 208.6, 80, 28.7107, 91.6196, -28.7107, -91.6196, 240.692, 0, -39.8019, -38.4276, 39.8019, 38.4276, 288.83, -80, -7.93462, -37.0168, 7.93462, 37.0168, 344.992, 24, 0, 0, 0, 0, 361.038, 80)
+"points": PackedVector2Array(4.26239, -59.2037, -4.26239, 59.2037, 361.038, 80, 6.50094, -9.3369, -6.50094, 9.3369, 328.946, 144, 44.3103, 100.722, -44.3103, -100.722, 104.3, 112, -13.8582, -38.7641, 13.8582, 38.7641, 152.438, 24, 0, 0, 0, 0, 218.628, 105, 21.1208, 68.9154, -21.1208, -68.9154, 240.692, 0, -25.4654, -29.1777, 25.4654, 29.1777, 288.83, -80, -7.93462, -37.0168, 7.93462, 37.0168, 344.992, 24, 0, 0, 0, 0, 361.038, 80)
 }
 point_count = 9
 
@@ -289,7 +289,7 @@ position = Vector2(1584, 280)
 [node name="HUD" parent="." instance=ExtResource("9_gpqk2")]
 
 [node name="PathEnemy2" parent="." instance=ExtResource("7_fo12w")]
-position = Vector2(136, 56)
+position = Vector2(74, 128)
 scale = Vector2(0.997125, 0.999681)
 curve = SubResource("Curve2D_w3i8y")
 
@@ -300,10 +300,10 @@ position = Vector2(409.176, 104)
 
 [node name="MovementAnim" parent="PathEnemy2" index="1"]
 autoplay = "MovementOpositorCloneType1"
-speed_scale = 1.0
+speed_scale = 1.25
 
 [node name="PathEnemy3" parent="." instance=ExtResource("7_fo12w")]
-position = Vector2(336, 120)
+position = Vector2(373, 92)
 curve = SubResource("Curve2D_mm0dm")
 
 [node name="PathFollow2D" parent="PathEnemy3" index="0"]
@@ -313,23 +313,23 @@ position = Vector2(375.078, 81)
 
 [node name="MovementAnim" parent="PathEnemy3" index="1"]
 autoplay = "MovementOpositorCloneType1"
-speed_scale = 0.8
+speed_scale = 1.25
 
 [node name="PathEnemy4" parent="." instance=ExtResource("7_fo12w")]
-position = Vector2(856, 504)
+position = Vector2(882, 498)
 curve = SubResource("Curve2D_btd3p")
 
 [node name="PathFollow2D" parent="PathEnemy4" index="0"]
-position = Vector2(336.969, 56)
+position = Vector2(384.104, 68)
 
 [node name="CloneType1" parent="PathEnemy4/PathFollow2D" index="0" instance=ExtResource("8_5xbx1")]
 
 [node name="MovementAnim" parent="PathEnemy4" index="1"]
 autoplay = "MovementOpositorCloneType1"
-speed_scale = 1.0
+speed_scale = 1.25
 
 [node name="PathEnemy5" parent="." instance=ExtResource("7_fo12w")]
-position = Vector2(904, 112)
+position = Vector2(900, 215)
 curve = SubResource("Curve2D_xrjr3")
 
 [node name="PathFollow2D" parent="PathEnemy5" index="0"]
@@ -339,10 +339,10 @@ position = Vector2(361.038, 80)
 
 [node name="MovementAnim" parent="PathEnemy5" index="1"]
 autoplay = "MovementOpositorCloneType1"
-speed_scale = 1.0
+speed_scale = 1.25
 
 [node name="PathEnemy6" parent="." instance=ExtResource("7_fo12w")]
-position = Vector2(1024, 152)
+position = Vector2(1091, 173)
 scale = Vector2(0.997125, 0.999681)
 curve = SubResource("Curve2D_w3i8y")
 
@@ -353,7 +353,7 @@ position = Vector2(409.176, 104)
 
 [node name="MovementAnim" parent="PathEnemy6" index="1"]
 autoplay = "MovementOpositorCloneType1"
-speed_scale = 1.0
+speed_scale = 1.25
 
 [node name="Heal" parent="." instance=ExtResource("10_8m4qj")]
 position = Vector2(1464, 544)
