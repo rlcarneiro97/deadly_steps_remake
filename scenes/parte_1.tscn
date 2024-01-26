@@ -266,7 +266,7 @@ position = Vector2(1576, 104)
 [node name="HUD" parent="." instance=ExtResource("7_xqx0k")]
 
 [node name="PathEnemy" parent="." instance=ExtResource("5_p5kqs")]
-position = Vector2(968, 216)
+position = Vector2(923, 217)
 curve = SubResource("Curve2D_3fuxf")
 
 [node name="PathFollow2D" parent="PathEnemy" index="0"]
@@ -275,10 +275,10 @@ position = Vector2(280.807, 120)
 [node name="CloneType1" parent="PathEnemy/PathFollow2D" index="0" instance=ExtResource("6_wlnp7")]
 
 [node name="MovementAnim" parent="PathEnemy" index="1"]
-speed_scale = 0.8
+speed_scale = 1.25
 
 [node name="PathEnemy2" parent="." instance=ExtResource("5_p5kqs")]
-position = Vector2(656, 100)
+position = Vector2(656, 113)
 curve = SubResource("Curve2D_b6ngg")
 
 [node name="PathFollow2D" parent="PathEnemy2" index="0"]
@@ -287,7 +287,7 @@ position = Vector2(377.084, 68)
 [node name="CloneType1" parent="PathEnemy2/PathFollow2D" index="0" instance=ExtResource("6_wlnp7")]
 
 [node name="MovementAnim" parent="PathEnemy2" index="1"]
-speed_scale = 0.8
+speed_scale = 1.25
 
 [node name="Character" parent="." instance=ExtResource("2_ek0wa")]
 position = Vector2(80, 144)

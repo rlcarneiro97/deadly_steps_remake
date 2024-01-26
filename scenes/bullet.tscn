@@ -95,7 +95,7 @@ _data = {
 [node name="Bullet" type="Area2D" groups=["bullet"]]
 scale = Vector2(0.5, 0.5)
 collision_layer = 2048
-collision_mask = 9541
+collision_mask = 1349
 script = ExtResource("1_uuno7")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

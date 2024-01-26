@@ -60,9 +60,9 @@ func load_game() -> bool:
 		var data = JSON.parse_string(loadgame.get_as_text())
 		loadgame.close()
 		
-		scenario_name = data["scenario_name"]
-		current_weapon = int(data["weapon"])
-		release_checkpoint = true
+		self.scenario_name = data["scenario_name"]
+		self.current_weapon = int(data["weapon"])
+		self.release_checkpoint = true
 		
 		get_tree().change_scene_to_file("res://scenes/"+scenario_name.to_lower()+".tscn")
 		return true

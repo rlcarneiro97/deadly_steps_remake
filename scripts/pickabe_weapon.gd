@@ -30,7 +30,6 @@ func destroy() -> void:
 	self.queue_free()
 
 func _change_type_weapon() -> void:
-	
 	if type_weapon == 0:
 		sprite_weapon.texture = load(weapon_skins[0])
 	elif type_weapon == 1:
