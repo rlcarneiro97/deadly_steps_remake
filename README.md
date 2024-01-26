@@ -1,4 +1,4 @@
-# deadly_steps_remake
+# Deadly Steps Remake
 Implementação de um fanart quase fiel a um mini game antigo que eu costumava jogar.
 
 ## Sobre as mudanças
