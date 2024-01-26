@@ -45,7 +45,7 @@ func _physics_process(delta):
 		FALL_SHOOT:
 			_fall_shoot_state(delta)
 
-	apply_continuos_damage()
+	_apply_continuos_damage()
 
 #-------------------------------------------------------------------------------
 
@@ -304,7 +304,7 @@ func _set_character_position() -> void:
 func _fix_camera_2d() -> void:
 	camera2D.limit_right = get_parent().get_node("ColorRect").size.x
 
-func verify_die_character() -> void:
+func _verify_die_character() -> void:
 	
 	if OptionsController.life_character <= 0:
 		damage_anim.play("DieAnim")
@@ -312,27 +312,27 @@ func verify_die_character() -> void:
 		MusicController.play_die_enemy_FX()
 		OptionsController.die_character()
 
-func apply_continuos_damage():
+func _apply_continuos_damage():
 	
 	if self.is_in_damage and OptionsController.life_character > 0:
 		OptionsController.update_life(-self.damage_receive)
 		MusicController.play_damage_char_FX()
 		damage_anim.play("DamageAnim")
 	
-	verify_die_character()
+	_verify_die_character()
 
-func apply_bullet_damage(bullet_damage):
+func _apply_bullet_damage(bullet_damage):
 	
 	if OptionsController.life_character > 0:
 		OptionsController.update_life(-bullet_damage)
 		MusicController.play_damage_char_FX()
 		damage_anim.play("DamageAnim")
 		
-	verify_die_character()
+	_verify_die_character()
 
 func _on_hitbox_area_entered(area):
-	if area.name == "lever":
-		area.set_status_lever(true)
+	if area.is_in_group("lever"):
+		area.set_open_lever(true)
 	if area.is_in_group("pickable_weapon"):
 		weapon.set_type_weapon(area.get_type_weapon())
 		area.destroy()
@@ -344,10 +344,10 @@ func _on_hitbox_area_entered(area):
 			OptionsController.update_life(OptionsController.BASE_LIFE_CHARACTER - OptionsController.life_character)
 			area.destroy()
 	if area.is_in_group("enemy_bullet"):
-		self.apply_bullet_damage(area.get_bullet_damage())
+		self._apply_bullet_damage(area.get_bullet_damage())
 
 func _on_hitbox_area_exited(area):
-	if area.name == "lever":
-		area.set_status_lever(false)
+	if area.is_in_group("lever"):
+		area.set_open_lever(false)
 	if area.is_in_group("continuos_damage"):
 		self.is_in_damage = false

@@ -345,7 +345,7 @@ scale = Vector2(1, 2.08)
 [node name="HUD" parent="." instance=ExtResource("8_06amn")]
 
 [node name="PathEnemy2" parent="." instance=ExtResource("9_f8f7c")]
-position = Vector2(688, 88)
+position = Vector2(707, 119)
 curve = SubResource("Curve2D_j86lu")
 
 [node name="PathFollow2D" parent="PathEnemy2" index="0"]
@@ -356,7 +356,7 @@ type_clone = 2
 enemy_health = 4.0
 
 [node name="MovementAnim" parent="PathEnemy2" index="1"]
-speed_scale = 0.8
+speed_scale = 1.5
 
 [node name="CloneType2_1" parent="." instance=ExtResource("11_or727")]
 position = Vector2(256, 528)

@@ -16,14 +16,14 @@ func instance_enemy() -> void:
 		timer.one_shot = false
 		timer.wait_time = 4
 		timer.start()
-		
+
 func apply_damage(bullet_damage):
 	MusicController.play_damage_clone_machine_FX()
 	clone_machine_damage -= bullet_damage
 	
 	if clone_machine_damage <= 0:
 		self.destroy_object()
-	
+
 func destroy_object():
 	MusicController.play_explode_FX()
 	self.collision_layer = 0

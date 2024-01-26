@@ -99,7 +99,7 @@ func destroy_object():
 		destroy_anim.play("DestroyCloneType4")
 	elif type_clone == 2:
 		destroy_anim.play("DestroyCloneType2")
-		get_parent().get_node("porta").set_is_door_opened(true)
+		get_parent().get_node("porta").set_is_door_open(true)
 		
 	await destroy_anim.animation_finished
 	MusicController.play_die_enemy_FX()

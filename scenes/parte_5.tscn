@@ -244,13 +244,13 @@ sources/1 = SubResource("TileSetAtlasSource_o0qob")
 
 [sub_resource type="Curve2D" id="Curve2D_j86lu"]
 _data = {
-"points": PackedVector2Array(-9.27654, -59.7037, 9.27654, 59.7037, 377.084, 68, 0, 0, 0, 0, 369.061, 144, 30.64, -4.60732, -30.64, 4.60732, 312.9, 184, 34.6152, 23.8919, -34.6152, -23.8919, 192.554, 168, 0, 0, 0, 0, 136.392, 88, -46.735, -57.2031, 46.735, 57.2031, 184.53, 56, 0, 0, 0, 0, 272.784, 152, 15.668, 95.4635, -15.668, -95.4635, 272.784, 24, 0, 0, 0, 0, 361.038, 32, 0, 0, 0, 0, 377.084, 68)
+"points": PackedVector2Array(-9.27654, -59.7037, 9.27654, 59.7037, 404.162, 28, 0, 0, 0, 0, 400.151, 137, 37.3866, -21.4253, -37.3866, 21.4253, 351.009, 172, 48.8141, 13.5093, -48.8141, -13.5093, 171.493, 193, 0, 0, 0, 0, 99.2854, 143, 0, 0, 0, 0, 106.306, 79, -27.2177, -82.5847, 27.2177, 82.5847, 172.496, 110, 0, 0, 0, 0, 249.718, 138, -2.55811, 80.7905, 2.55811, -80.7905, 272.784, 24, 0, 0, 0, 0, 342.986, -26, 0, 0, 0, 0, 385.107, 4, 0, 0, 0, 0, 404.162, 29)
 }
-point_count = 10
+point_count = 12
 
 [sub_resource type="Curve2D" id="Curve2D_ngbwe"]
 _data = {
-"points": PackedVector2Array(-9.27654, -59.7037, 9.27654, 59.7037, 517.585, 52.5879, 97.1506, 2.33305, -97.1506, -2.33305, 299.627, 106.856, 2.1239, 32.0377, -2.1239, -32.0377, 151.751, 77.69, 0, 0, 0, 0, 311.357, -44.5304, -24.8201, -32.5269, 24.8201, 32.5269, 474.825, -85.2314, 0, 0, 0, 0, 517.585, 52.5879)
+"points": PackedVector2Array(-9.27654, -59.7037, 9.27654, 59.7037, 497.153, 53.5512, 97.1506, 2.33305, -97.1506, -2.33305, 272.864, 127.954, 2.1239, 32.0377, -2.1239, -32.0377, 189.198, 107.545, 0, 0, 0, 0, 321.81, -27.5437, -24.8201, -32.5269, 24.8201, 32.5269, 474.825, -85.2314, 0, 0, 0, 0, 496.91, 52.5807)
 }
 point_count = 6
 
@@ -315,27 +315,27 @@ position = Vector2(1646, 104)
 [node name="HUD" parent="." instance=ExtResource("6_fg1vy")]
 
 [node name="PathEnemy2" parent="." instance=ExtResource("7_pel4g")]
-position = Vector2(0, 88)
+position = Vector2(-33, 94)
 curve = SubResource("Curve2D_j86lu")
 
 [node name="PathFollow2D" parent="PathEnemy2" index="0"]
-position = Vector2(377.084, 68)
+position = Vector2(404.162, 28)
 
 [node name="CloneType1" parent="PathEnemy2/PathFollow2D" index="0" instance=ExtResource("8_jynss")]
 type_clone = 1
 enemy_health = 4.0
 
 [node name="MovementAnim" parent="PathEnemy2" index="1"]
-speed_scale = 0.8
+speed_scale = 1.5
 
 [node name="PathEnemy3" parent="." instance=ExtResource("7_pel4g")]
-position = Vector2(304, -6.4373e-06)
+position = Vector2(290, 44)
 rotation = 0.244623
 scale = Vector2(0.997125, 0.999681)
 curve = SubResource("Curve2D_ngbwe")
 
 [node name="PathFollow2D" parent="PathEnemy3" index="0"]
-position = Vector2(517.585, 52.5879)
+position = Vector2(497.153, 53.5512)
 
 [node name="CloneType1" parent="PathEnemy3/PathFollow2D" index="0" instance=ExtResource("8_jynss")]
 rotation = -0.2437
@@ -344,21 +344,21 @@ enemy_health = 4.0
 
 [node name="MovementAnim" parent="PathEnemy3" index="1"]
 autoplay = "MovementOpositorCloneType1"
-speed_scale = 1.0
+speed_scale = 1.5
 
 [node name="PathEnemy4" parent="." instance=ExtResource("7_pel4g")]
-position = Vector2(800, 424)
+position = Vector2(804, 427)
 curve = SubResource("Curve2D_j86lu")
 
 [node name="PathFollow2D" parent="PathEnemy4" index="0"]
-position = Vector2(377.084, 68)
+position = Vector2(404.162, 28)
 
 [node name="CloneType1" parent="PathEnemy4/PathFollow2D" index="0" instance=ExtResource("8_jynss")]
 type_clone = 1
 enemy_health = 4.0
 
 [node name="MovementAnim" parent="PathEnemy4" index="1"]
-speed_scale = 0.8
+speed_scale = 1.5
 
 [node name="CloneType2_1" parent="." instance=ExtResource("9_o8e3c")]
 position = Vector2(816, 96)

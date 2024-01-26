@@ -44,7 +44,7 @@ _data = {
 "acao alavanca": SubResource("Animation_u3bdg")
 }
 
-[node name="lever" type="Area2D"]
+[node name="lever" type="Area2D" groups=["lever"]]
 collision_layer = 8
 collision_mask = 2
 script = ExtResource("1_8l23l")
