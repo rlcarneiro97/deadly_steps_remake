@@ -1,0 +1,4 @@
+exportar para:
+
+/windows
+/web
