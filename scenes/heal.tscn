@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://bk2kmud8k6bnx"]
 
-[ext_resource type="Script" path="res://scripts/heal.gd" id="1_gkrmq"]
+[ext_resource type="Script" uid="uid://dwwk61nwoia34" path="res://scripts/heal.gd" id="1_gkrmq"]
 [ext_resource type="Texture2D" uid="uid://lr40bc8wbhet" path="res://assets/vida/vida.png" id="1_w06wf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_odskb"]
@@ -40,8 +40,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_hlkk4"]
 _data = {
-"IdleHealAnim": SubResource("Animation_l33u0"),
-"RESET": SubResource("Animation_gupav")
+&"IdleHealAnim": SubResource("Animation_l33u0"),
+&"RESET": SubResource("Animation_gupav")
 }
 
 [node name="Heal" type="Area2D" groups=["fully_heal"]]

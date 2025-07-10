@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://bu0ryrkvci2yp"]
 
-[ext_resource type="Script" path="res://scripts/enemy_bullet.gd" id="1_1xu32"]
+[ext_resource type="Script" uid="uid://dowo3jo1gwdj7" path="res://scripts/enemy_bullet.gd" id="1_1xu32"]
 [ext_resource type="Texture2D" uid="uid://csdqrkvhxr0do" path="res://assets/formas geométricas/cubo.png" id="2_dakfp"]
 [ext_resource type="Texture2D" uid="uid://r6linll2k8g8" path="res://assets/fx/damage.png" id="3_2dyd6"]
 
@@ -88,8 +88,8 @@ tracks/2/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_lf5gf"]
 _data = {
-"BulletDamage": SubResource("Animation_geqxh"),
-"RESET": SubResource("Animation_lyyu8")
+&"BulletDamage": SubResource("Animation_geqxh"),
+&"RESET": SubResource("Animation_lyyu8")
 }
 
 [node name="EnemyBullet" type="Area2D" groups=["enemy_bullet"]]

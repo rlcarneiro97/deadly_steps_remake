@@ -1,6 +1,6 @@
 [gd_scene load_steps=11 format=3 uid="uid://vm1gotn4mp7i"]
 
-[ext_resource type="Script" path="res://scripts/clone_type_0.gd" id="1_kgu6l"]
+[ext_resource type="Script" uid="uid://clmvpiiarha0r" path="res://scripts/clone_type_0.gd" id="1_kgu6l"]
 [ext_resource type="Texture2D" uid="uid://06ah05lt6nyg" path="res://assets/formas geométricas/circulo.png" id="2_ibw88"]
 [ext_resource type="Texture2D" uid="uid://dr5julgqsjxxh" path="res://assets/characters/bicho.png" id="3_krs6r"]
 [ext_resource type="Texture2D" uid="uid://dpxav81qxc47h" path="res://assets/fx/explosion.png" id="4_t3xke"]
@@ -144,9 +144,9 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_kx566"]
 _data = {
-"DestroyCloneType0": SubResource("Animation_gadv4"),
-"RESET": SubResource("Animation_7vwr1"),
-"WalkCloneType0": SubResource("Animation_1rpdg")
+&"DestroyCloneType0": SubResource("Animation_gadv4"),
+&"RESET": SubResource("Animation_7vwr1"),
+&"WalkCloneType0": SubResource("Animation_1rpdg")
 }
 
 [node name="CloneType0" type="Area2D" groups=["continuos_damage", "enemy"]]
@@ -199,21 +199,21 @@ texture = ExtResource("2_ibw88")
 
 [node name="WalkAnim" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_kx566")
+&"": SubResource("AnimationLibrary_kx566")
 }
 
 [node name="DestroyAnim" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_kx566")
+&"": SubResource("AnimationLibrary_kx566")
 }
 
 [node name="DieEffect" type="CPUParticles2D" parent="."]
 emitting = false
 amount = 40
+texture = ExtResource("4_t3xke")
 lifetime = 0.5
 one_shot = true
 explosiveness = 1.0
-texture = ExtResource("4_t3xke")
 spread = 180.0
 gravity = Vector2(0, 0)
 initial_velocity_min = 100.0

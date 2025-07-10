@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://twweba6e6pul"]
 
-[ext_resource type="Script" path="res://scripts/cercado.gd" id="1_5hf1u"]
+[ext_resource type="Script" uid="uid://b4088yxsxte3y" path="res://scripts/cercado.gd" id="1_5hf1u"]
 [ext_resource type="Texture2D" uid="uid://bdsx2yhem0ei" path="res://assets/cenario/cercado com arame farpado.png" id="1_mpugt"]
 
 [node name="cercado" type="Node2D"]

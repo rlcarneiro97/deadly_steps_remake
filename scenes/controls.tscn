@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://rfj8l0onirtb"]
 
-[ext_resource type="Script" path="res://scripts/controles.gd" id="1_c1pav"]
+[ext_resource type="Script" uid="uid://chsvt1dsqevpa" path="res://scripts/controles.gd" id="1_c1pav"]
 [ext_resource type="Texture2D" uid="uid://dw8vn6dvpkv64" path="res://assets/controles/Captura de Tela (5).png" id="2_xh172"]
 
 [node name="Controls" type="Node2D"]

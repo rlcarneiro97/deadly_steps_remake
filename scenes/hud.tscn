@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://dr7kje8k8aoc5"]
 
 [ext_resource type="Texture2D" uid="uid://dssbb8ygdy585" path="res://assets/hud/heart.png" id="1_7np5r"]
-[ext_resource type="Script" path="res://scripts/hud.gd" id="1_vr7x7"]
+[ext_resource type="Script" uid="uid://xusglwl1dn5o" path="res://scripts/hud.gd" id="1_vr7x7"]
 
 [sub_resource type="Animation" id="Animation_gv8nu"]
 resource_name = "HeartBeat"
@@ -37,8 +37,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ap5uq"]
 _data = {
-"HeartBeat": SubResource("Animation_gv8nu"),
-"RESET": SubResource("Animation_khuyj")
+&"HeartBeat": SubResource("Animation_gv8nu"),
+&"RESET": SubResource("Animation_khuyj")
 }
 
 [node name="HUD" type="Control"]

@@ -1,7 +1,6 @@
 extends Area2D
 
 var is_in_savepoint := false
-
 @onready var character
 
 func _process(_delta):

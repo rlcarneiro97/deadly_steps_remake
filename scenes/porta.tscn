@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://rs1vd52nkmq"]
 
-[ext_resource type="Script" path="res://scripts/porta.gd" id="1_oqh5j"]
+[ext_resource type="Script" uid="uid://1myrcrnt6utx" path="res://scripts/porta.gd" id="1_oqh5j"]
 [ext_resource type="Texture2D" uid="uid://bvlhbwckvs3t5" path="res://assets/cenario/portão.png" id="2_p02gj"]
 [ext_resource type="Texture2D" uid="uid://bg2aelvfpbexp" path="res://assets/cenario/porta baixo.png" id="3_02ikh"]
 
@@ -40,8 +40,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_mw5ws"]
 _data = {
-"RESET": SubResource("Animation_383a0"),
-"open_door": SubResource("Animation_feg1b")
+&"RESET": SubResource("Animation_383a0"),
+&"open_door": SubResource("Animation_feg1b")
 }
 
 [node name="porta" type="StaticBody2D"]

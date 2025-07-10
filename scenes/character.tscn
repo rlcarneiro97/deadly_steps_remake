@@ -1,6 +1,6 @@
 [gd_scene load_steps=17 format=3 uid="uid://dbigh2spk2ws7"]
 
-[ext_resource type="Script" path="res://scripts/character.gd" id="1_4hamb"]
+[ext_resource type="Script" uid="uid://bvfq3gw2wrc2a" path="res://scripts/character.gd" id="1_4hamb"]
 [ext_resource type="Texture2D" uid="uid://dr5julgqsjxxh" path="res://assets/characters/bicho.png" id="2_6nu3q"]
 [ext_resource type="Texture2D" uid="uid://06ah05lt6nyg" path="res://assets/formas geométricas/circulo.png" id="3_xg3ad"]
 [ext_resource type="PackedScene" uid="uid://d1bx3f0oguxhu" path="res://scenes/weapon.tscn" id="4_trwtq"]
@@ -64,9 +64,9 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_kx566"]
 _data = {
-"RESET": SubResource("Animation_7b6wk"),
-"Shoot": SubResource("Animation_f1uyg"),
-"Walk": SubResource("Animation_tfrw1")
+&"RESET": SubResource("Animation_7b6wk"),
+&"Shoot": SubResource("Animation_f1uyg"),
+&"Walk": SubResource("Animation_tfrw1")
 }
 
 [sub_resource type="Animation" id="Animation_63dlq"]
@@ -238,9 +238,9 @@ tracks/4/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_8aurm"]
 _data = {
-"DamageAnim": SubResource("Animation_63dlq"),
-"DieAnim": SubResource("Animation_4eubf"),
-"RESET": SubResource("Animation_uhou1")
+&"DamageAnim": SubResource("Animation_63dlq"),
+&"DieAnim": SubResource("Animation_4eubf"),
+&"RESET": SubResource("Animation_uhou1")
 }
 
 [node name="Character" type="CharacterBody2D"]
@@ -283,7 +283,7 @@ scale = Vector2(0.364687, 0.178183)
 texture = ExtResource("3_xg3ad")
 
 [node name="Weapon" parent="." instance=ExtResource("4_trwtq")]
-position = Vector2(0, 17.5)
+position = Vector2(0, 18.5)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(1.4, 1.4)
@@ -306,10 +306,10 @@ editor_draw_drag_margin = true
 [node name="DieEffect" type="CPUParticles2D" parent="."]
 emitting = false
 amount = 40
+texture = ExtResource("5_ycn1w")
 lifetime = 0.5
 one_shot = true
 explosiveness = 1.0
-texture = ExtResource("5_ycn1w")
 spread = 180.0
 gravity = Vector2(0, 0)
 initial_velocity_min = 100.0
@@ -320,17 +320,17 @@ color_ramp = ExtResource("6_xgr1k")
 
 [node name="WalkAnim" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_kx566")
+&"": SubResource("AnimationLibrary_kx566")
 }
 
 [node name="ShootAnim" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_kx566")
+&"": SubResource("AnimationLibrary_kx566")
 }
 
 [node name="DamageAnim" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_8aurm")
+&"": SubResource("AnimationLibrary_8aurm")
 }
 
 [connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]

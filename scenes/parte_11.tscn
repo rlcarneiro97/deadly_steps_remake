@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://bisg4es7b607x"]
 
-[ext_resource type="Script" path="res://scripts/parte_11.gd" id="1_lterc"]
+[ext_resource type="Script" uid="uid://bf5t4qbpqx0f0" path="res://scripts/parte_11.gd" id="1_lterc"]
 [ext_resource type="Texture2D" uid="uid://11qs0mlrkcre" path="res://assets/creditos/Captura de Tela (46).png" id="2_fpy8x"]
 
 [node name="Parte_11" type="Node2D"]

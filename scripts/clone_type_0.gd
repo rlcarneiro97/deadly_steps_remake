@@ -39,7 +39,7 @@ func get_enemy_damage() -> float:
 	return self.enemy_damage
 
 func _on_body_shape_entered(_body_rid, body, _body_shape_index, _local_shape_index):
-	if body.name == "TileMap" or body.name == "porta":
+	if body.name == "Layer0" or body.name == "porta":
 		self.can_move = false
 		self.destroy_object()
 

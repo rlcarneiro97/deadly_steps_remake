@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://dfd4f4wxcggt8"]
 
 [ext_resource type="Texture2D" uid="uid://by48x75qh55oy" path="res://assets/interativos/alavanca_1.png" id="1_0ul7f"]
-[ext_resource type="Script" path="res://scripts/lever.gd" id="1_8l23l"]
+[ext_resource type="Script" uid="uid://c3kirg154vsit" path="res://scripts/lever.gd" id="1_8l23l"]
 [ext_resource type="Texture2D" uid="uid://o36yikwn8qc5" path="res://assets/interativos/Alavanca_2.png" id="2_2sodp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xa15l"]
@@ -40,8 +40,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_vjnqh"]
 _data = {
-"RESET": SubResource("Animation_kxbua"),
-"acao alavanca": SubResource("Animation_u3bdg")
+&"RESET": SubResource("Animation_kxbua"),
+&"acao alavanca": SubResource("Animation_u3bdg")
 }
 
 [node name="lever" type="Area2D" groups=["lever"]]

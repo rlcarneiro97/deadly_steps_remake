@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://dfduvuujh5en5"]
 
-[ext_resource type="Script" path="res://scripts/intro_mission_1.gd" id="1_ibufv"]
+[ext_resource type="Script" uid="uid://d1cp2c4xxkrax" path="res://scripts/intro_mission_1.gd" id="1_ibufv"]
 [ext_resource type="Texture2D" uid="uid://b63uy35lf6hec" path="res://assets/intro_mission_1/Captura de Tela (7).png" id="2_4viwu"]
 
 [node name="Intro_Mission_1" type="Node2D"]

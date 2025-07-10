@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://oknyiuimldq7"]
 
-[ext_resource type="Script" path="res://scripts/clone_machine.gd" id="1_bve03"]
+[ext_resource type="Script" uid="uid://cnul70ge6oiis" path="res://scripts/clone_machine.gd" id="1_bve03"]
 [ext_resource type="Texture2D" uid="uid://dil48uc0hg7xf" path="res://assets/interativos/Clone Machine.png" id="1_vip6v"]
 [ext_resource type="Texture2D" uid="uid://dpxav81qxc47h" path="res://assets/fx/explosion.png" id="3_nssb2"]
 [ext_resource type="Gradient" uid="uid://cydj0hwyh8shl" path="res://assets/fx/new_gradient.tres" id="4_almgp"]
@@ -53,8 +53,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_3d2mq"]
 _data = {
-"CloneMachineDestroy": SubResource("Animation_rolhp"),
-"RESET": SubResource("Animation_ofgtk")
+&"CloneMachineDestroy": SubResource("Animation_rolhp"),
+&"RESET": SubResource("Animation_ofgtk")
 }
 
 [node name="CloneMachine" type="StaticBody2D"]

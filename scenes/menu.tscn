@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://cssrvmcgwol05"]
 
-[ext_resource type="Script" path="res://scripts/menu.gd" id="1_kxfks"]
+[ext_resource type="Script" uid="uid://055bsiwaidlu" path="res://scripts/menu.gd" id="1_kxfks"]
 [ext_resource type="Texture2D" uid="uid://xt4skcy031w2" path="res://assets/menu/Captura de Tela (4).png" id="2_8u8tn"]
 
 [node name="Menu" type="Node2D"]

@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://c4nnjnm1k3jbe"]
 
-[ext_resource type="Texture2D" uid="uid://odts4gbub86g" path="res://assets/assets provisorios/air_ventilation.png" id="1_1oqcm"]
+[ext_resource type="Texture2D" uid="uid://odts4gbub86g" path="res://assets/cenario/air_ventilation.png" id="1_1oqcm"]
 
 [node name="AirVentilation" type="Node2D"]
 

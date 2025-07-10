@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://rjlsn0ngb4jt"]
 
 [ext_resource type="Texture2D" uid="uid://cumuakj8qkyco" path="res://assets/interativos/Caminhão.png" id="1_xkbd3"]
-[ext_resource type="Script" path="res://scripts/caminhao.gd" id="1_xr01a"]
+[ext_resource type="Script" uid="uid://c3io0bcyk6lkc" path="res://scripts/caminhao.gd" id="1_xr01a"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m372s"]
 size = Vector2(256, 144)
@@ -39,8 +39,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_7nejj"]
 _data = {
-"RESET": SubResource("Animation_7f1ma"),
-"run": SubResource("Animation_egkne")
+&"RESET": SubResource("Animation_7f1ma"),
+&"run": SubResource("Animation_egkne")
 }
 
 [node name="caminhao" type="Area2D"]

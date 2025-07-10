@@ -1,6 +1,6 @@
 [gd_scene load_steps=14 format=3 uid="uid://dwths7glfdqyo"]
 
-[ext_resource type="Script" path="res://scripts/clone_type_1.gd" id="1_5duwn"]
+[ext_resource type="Script" uid="uid://bngeaadgf5tuv" path="res://scripts/clone_type_1.gd" id="1_5duwn"]
 [ext_resource type="Texture2D" uid="uid://dr5julgqsjxxh" path="res://assets/characters/bicho.png" id="2_qtbgg"]
 [ext_resource type="Texture2D" uid="uid://06ah05lt6nyg" path="res://assets/formas geométricas/circulo.png" id="3_n8cjk"]
 [ext_resource type="Texture2D" uid="uid://dpxav81qxc47h" path="res://assets/fx/explosion.png" id="3_x1vtq"]
@@ -167,9 +167,9 @@ tracks/3/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_nl8md"]
 _data = {
-"DestroyCloneType1": SubResource("Animation_0t0ip"),
-"DestroyCloneType3": SubResource("Animation_c1700"),
-"DestroyCloneType5": SubResource("Animation_tb8pt")
+&"DestroyCloneType1": SubResource("Animation_0t0ip"),
+&"DestroyCloneType3": SubResource("Animation_c1700"),
+&"DestroyCloneType5": SubResource("Animation_tb8pt")
 }
 
 [sub_resource type="Animation" id="Animation_05123"]
@@ -230,8 +230,8 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_cym35"]
 _data = {
-"IdleAnim": SubResource("Animation_05123"),
-"RESET": SubResource("Animation_cb3q8")
+&"IdleAnim": SubResource("Animation_05123"),
+&"RESET": SubResource("Animation_cb3q8")
 }
 
 [node name="CloneType1" type="Area2D" groups=["continuos_damage", "enemy"]]
@@ -267,10 +267,10 @@ flip_h = true
 [node name="DieEffect" type="CPUParticles2D" parent="."]
 emitting = false
 amount = 40
+texture = ExtResource("3_x1vtq")
 lifetime = 0.5
 one_shot = true
 explosiveness = 1.0
-texture = ExtResource("3_x1vtq")
 spread = 180.0
 gravity = Vector2(0, 0)
 initial_velocity_min = 100.0
@@ -281,12 +281,12 @@ color_ramp = ExtResource("4_3l1eg")
 
 [node name="DestroyAnim" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_nl8md")
+&"": SubResource("AnimationLibrary_nl8md")
 }
 
 [node name="IdleAnim" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_cym35")
+&"": SubResource("AnimationLibrary_cym35")
 }
 speed_scale = 1.5
 

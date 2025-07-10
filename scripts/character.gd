@@ -274,11 +274,11 @@ func _apply_movement() -> void:
 		velocity.x = move_toward(velocity.x, 0, speed)
 
 func _apply_direction() -> void:
-
 	if weapon.orientation():
 		body.flip_h = true
 	else:
 		body.flip_h = false
+	pass
 
 func _apply_jump_force() -> void:
 	velocity.y = jump_force

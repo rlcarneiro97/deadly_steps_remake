@@ -30,20 +30,23 @@ var bullet_light_Fama := Vector2(1.5, 3)*1.5
 var bullet_light_AK_45 := Vector2(1.5, 3)*2.0
 
 @onready var weapon_sprite = $WeaponSprite
-@onready var marker = $Marker1
-@onready var ejector = $Ejector1
-@onready var shoot_sprite = $Shoot1
+@onready var marker = $WeaponSprite/Marker1
+@onready var ejector = $WeaponSprite/Ejector1
+@onready var shoot_sprite = $WeaponSprite/Shoot1
 
 var pre_enemy_bullet = preload("res://scenes/enemy_bullet.tscn")
 var pre_sheel_casing = preload("res://scenes/sheel_casing.tscn")
 var weapon_skins = [
-	"res://assets/armas/M4A2.png",
-	"res://assets/armas/Fama.png",
-	"res://assets/armas/AK_45.png"
+	"res://assets/armas/M4A2_Enemy_Hand.png",
+	"res://assets/armas/Fama_Enemy_Hand.png",
+	"res://assets/armas/AK_45_Enemy_Hand.png"
 ]
 
 func _draw():
 	_change_type_weapon()
+
+func _ready():
+	update_current_weapon_data()
 
 func _process(_delta):
 	if Engine.is_editor_hint():
@@ -54,49 +57,27 @@ func _physics_process(_delta):
 		look_at(get_parent().get_parent().get_node("Character").get_global_position())
 
 func orientation() -> bool:
-
 	if cos(rotation) < -0.01:
-		weapon_sprite.flip_v = true
-		marker = $Marker2
-		ejector = $Ejector2
-		shoot_sprite = $Shoot2
-		shoot_sprite.self_modulate = Color("#ffffff")
-		shoot_sprite.position = Vector2(69.333, 11)
-		shoot_sprite.scale = bullet_light_M4A2
-		#fix fama e ak45
-		if type_weapon == 1:
-			marker.position = Vector2(45, 4)
-			shoot_sprite.position = Vector2(80, 1)
-			shoot_sprite.self_modulate = Color("#ffff00")
-			shoot_sprite.scale = bullet_light_Fama
-		elif type_weapon == 2:
-			marker.position = Vector2(46, 8)
-			shoot_sprite.position = Vector2(95, 5)
-			shoot_sprite.scale = bullet_light_AK_45
-			shoot_sprite.self_modulate = Color("#ff5100")
-		
 		return true
 	else:
-		weapon_sprite.flip_v = false
-		marker = $Marker1
-		ejector = $Ejector1
-		shoot_sprite = $Shoot1
-		shoot_sprite.self_modulate = Color("#ffffff")
-		shoot_sprite.position = Vector2(68, -8)
-		shoot_sprite.scale = bullet_light_M4A2
-		#fix fama e ak45
-		if type_weapon == 1:
-			marker.position = Vector2(45, -2)
-			shoot_sprite.position = Vector2(80, -4)
-			shoot_sprite.self_modulate = Color("#ffff00")
-			shoot_sprite.scale = bullet_light_Fama
-		elif type_weapon == 2:
-			marker.position = Vector2(46, -7)
-			shoot_sprite.position = Vector2(95, -9) 
-			shoot_sprite.scale = bullet_light_AK_45
-			shoot_sprite.self_modulate = Color("#ff5100")
-		
 		return false
+
+func update_current_weapon_data():
+	if type_weapon == 0:
+		shoot_sprite.self_modulate = Color("#ffffff")
+		shoot_sprite.scale = bullet_light_M4A2
+		marker.position = Vector2(32, 8.5)
+		shoot_sprite.position = Vector2(56, 7.5)
+	if type_weapon == 1:
+		shoot_sprite.self_modulate = Color("#ffff00")
+		shoot_sprite.scale = bullet_light_Fama
+		marker.position = Vector2(33, 2)
+		shoot_sprite.position = Vector2(68.5, 0)
+	if type_weapon == 2:
+		shoot_sprite.self_modulate = Color("#ff5100")
+		shoot_sprite.scale = bullet_light_AK_45
+		marker.position = Vector2(33, 7.5)
+		shoot_sprite.position = Vector2(80, 3)
 
 func shoot(delta) -> void:
 	
@@ -118,7 +99,7 @@ func shoot(delta) -> void:
 
 		var enemy_bullet_instance = pre_enemy_bullet.instantiate(PackedScene.GEN_EDIT_STATE_DISABLED)
 		self.shoot_sprite.visible = true
-		MusicController.play_shoot_FX(0)
+		MusicController.play_shoot_FX(type_weapon)
 		enemy_bullet_instance.global_position = marker.global_position
 		enemy_bullet_instance.rotation_degrees = rotation_degrees
 		
@@ -149,7 +130,8 @@ func _change_type_weapon() -> void:
 		weapon_sprite.texture = load(weapon_skins[1])
 	elif type_weapon == 2:
 		weapon_sprite.texture = load(weapon_skins[2])
+		
+	update_current_weapon_data()
 
 func invisible_shoot_sprite() -> void:
-	$Shoot1.visible = false
-	$Shoot2.visible = false
+	shoot_sprite.visible = false

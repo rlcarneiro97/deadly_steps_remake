@@ -1,7 +1,7 @@
 [gd_scene load_steps=16 format=3 uid="uid://lwnnixkxnrjb"]
 
 [ext_resource type="Texture2D" uid="uid://dr5julgqsjxxh" path="res://assets/characters/bicho.png" id="1_a2itf"]
-[ext_resource type="Script" path="res://scripts/clone_type_2.gd" id="1_gw26q"]
+[ext_resource type="Script" uid="uid://brfddk6yqhgrc" path="res://scripts/clone_type_2.gd" id="1_gw26q"]
 [ext_resource type="Texture2D" uid="uid://06ah05lt6nyg" path="res://assets/formas geométricas/circulo.png" id="2_blomk"]
 [ext_resource type="PackedScene" uid="uid://co754qs3udgo" path="res://scenes/enemy_weapon.tscn" id="3_j0tt5"]
 [ext_resource type="Texture2D" uid="uid://us06atcfy1j2" path="res://assets/characters/seta.png" id="4_ckjwe"]
@@ -228,9 +228,9 @@ tracks/6/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_um244"]
 _data = {
-"DestroyCloneType2": SubResource("Animation_kcebl"),
-"DestroyCloneType4": SubResource("Animation_f8pj3"),
-"RESET": SubResource("Animation_1m10t")
+&"DestroyCloneType2": SubResource("Animation_kcebl"),
+&"DestroyCloneType4": SubResource("Animation_f8pj3"),
+&"RESET": SubResource("Animation_1m10t")
 }
 
 [sub_resource type="Animation" id="Animation_05123"]
@@ -291,8 +291,8 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_cym35"]
 _data = {
-"IdleAnim": SubResource("Animation_05123"),
-"RESET": SubResource("Animation_cb3q8")
+&"IdleAnim": SubResource("Animation_05123"),
+&"RESET": SubResource("Animation_cb3q8")
 }
 
 [node name="CloneType2" type="Area2D" groups=["enemy"]]
@@ -325,6 +325,7 @@ texture = ExtResource("2_blomk")
 self_modulate = Color(1, 0.341176, 0.352941, 1)
 scale = Vector2(1.2, 1.2)
 texture = ExtResource("1_a2itf")
+flip_h = true
 
 [node name="RightFoot" type="Sprite2D" parent="."]
 self_modulate = Color(1, 0.341176, 0.352941, 1)
@@ -347,26 +348,26 @@ position = Vector2(0, -48.5714)
 texture = ExtResource("4_ckjwe")
 
 [node name="EnemyWeapon" parent="." instance=ExtResource("3_j0tt5")]
-position = Vector2(0, 17.5)
+position = Vector2(1.42857, 20)
 
 [node name="DestroyAnim" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_um244")
+&"": SubResource("AnimationLibrary_um244")
 }
 
 [node name="IdleAnim" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_cym35")
+&"": SubResource("AnimationLibrary_cym35")
 }
 speed_scale = 1.5
 
 [node name="DieEffect" type="CPUParticles2D" parent="."]
 emitting = false
 amount = 40
+texture = ExtResource("5_dag1n")
 lifetime = 0.5
 one_shot = true
 explosiveness = 1.0
-texture = ExtResource("5_dag1n")
 spread = 180.0
 gravity = Vector2(0, 0)
 initial_velocity_min = 100.0

@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://beey45kx4h510"]
 
-[ext_resource type="Script" path="res://scripts/bullet.gd" id="1_uuno7"]
+[ext_resource type="Script" uid="uid://cbsk2ft84qecu" path="res://scripts/bullet.gd" id="1_uuno7"]
 [ext_resource type="Texture2D" uid="uid://csdqrkvhxr0do" path="res://assets/formas geométricas/cubo.png" id="2_rci22"]
 [ext_resource type="Texture2D" uid="uid://r6linll2k8g8" path="res://assets/fx/damage.png" id="3_evbqm"]
 
@@ -88,8 +88,8 @@ tracks/2/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_lf5gf"]
 _data = {
-"BulletDamage": SubResource("Animation_geqxh"),
-"RESET": SubResource("Animation_lyyu8")
+&"BulletDamage": SubResource("Animation_geqxh"),
+&"RESET": SubResource("Animation_lyyu8")
 }
 
 [node name="Bullet" type="Area2D" groups=["bullet"]]
@@ -124,7 +124,7 @@ texture = ExtResource("3_evbqm")
 
 [node name="BulletDamageAnim" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_lf5gf")
+&"": SubResource("AnimationLibrary_lf5gf")
 }
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]

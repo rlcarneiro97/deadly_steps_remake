@@ -57,9 +57,9 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_uwnb8"]
 _data = {
-"MovementCloneType1": SubResource("Animation_u8bev"),
-"MovementOpositorCloneType1": SubResource("Animation_7uvu3"),
-"RESET": SubResource("Animation_4wb68")
+&"MovementCloneType1": SubResource("Animation_u8bev"),
+&"MovementOpositorCloneType1": SubResource("Animation_7uvu3"),
+&"RESET": SubResource("Animation_4wb68")
 }
 
 [node name="PathEnemy" type="Path2D"]
